@@ -23,8 +23,24 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/home", (req: Request, res: Response) => {
   res.render("index");
+});
+
+app.get("/services", (req: Request, res: Response) => {
+  res.render("services");
+});
+
+app.get("/about", (req: Request, res: Response) => {
+  res.render("about");
+});
+
+app.get("/contact", (req: Request, res: Response) => {
+  res.render("contact");
+});
+
+app.get("*", (req: Request, res: Response) => {
+  res.redirect("/home");
 });
 
 app.listen(PORT, () => {
