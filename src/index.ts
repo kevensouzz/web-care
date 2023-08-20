@@ -1,10 +1,12 @@
-require("dotenv").config({});
-const path = require("path");
-const PORT = process.env.PORT;
-const express = require("express");
+import dotenv from "dotenv";
+import path from "path";
+import express, { Request, Response, NextFunction } from "express";
+
+dotenv.config();
+const PORT: string | number = process.env.PORT || 5000;
 const app = express();
 
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next: NextFunction) => {
   if (req.path.endsWith("/") && req.path.length > 1) {
     const newPath = req.path.slice(0, -1);
     const query = req.url.slice(req.path.length);
@@ -21,7 +23,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   res.render("index");
 });
 
