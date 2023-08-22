@@ -50,7 +50,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px;
+  padding: 0 2.5rem;
 }
 
 header #banner {
@@ -79,11 +79,12 @@ header nav {
 }
 
 header #settings {
-  width: 5%;
+  width: 12.5%;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1rem;
 }
 
 header #settings img {
@@ -96,4 +97,29 @@ footer {
 
   background: black;
   color: white;
+}
+
+@media (max-width: 1024px) {
+  header {
+    padding: 0 1rem;
+  }
+
+  header #banner img {
+    width: 36px;
+    height: 36px;
+  }
+
+  header #banner h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  header nav {
+    gap: 0.75rem;
+  }
+
+  header #settings {
+    width: 10%;
+    gap: 0.5rem;
+  }
 }
