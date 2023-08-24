@@ -43,9 +43,18 @@ main {
 
 header {
   width: 100%;
-  height: 7.5vh;
 
   position: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+header section {
+  width: 100%;
+  height: 7.5vh;
 
   display: flex;
   align-items: center;
@@ -53,7 +62,7 @@ header {
   padding: 0 2.5rem;
 }
 
-header #banner {
+header section #banner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,15 +70,15 @@ header #banner {
   gap: 0.5rem;
 }
 
-header #banner img {
+header section #banner img {
   margin-bottom: 0.5rem;
 }
 
-header #banner h1 {
+header section #banner h1 {
   font-weight: 600;
 }
 
-header nav {
+header section #nav {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,7 +87,7 @@ header nav {
   font-size: 1.25rem;
 }
 
-header #settings {
+header section #settings {
   width: 12.5%;
 
   display: flex;
@@ -87,8 +96,14 @@ header #settings {
   gap: 1rem;
 }
 
-header #settings img {
+header section #settings img {
   cursor: pointer;
+}
+
+header #mobile-nav {
+  width: 100%;
+  height: 5vh;
+  display: none;
 }
 
 footer {
@@ -100,26 +115,64 @@ footer {
 }
 
 @media (max-width: 1024px) {
-  header {
+  header section {
     padding: 0 1rem;
   }
 
-  header #banner img {
+  header section #banner img {
     width: 36px;
     height: 36px;
   }
 
-  header #banner h1 {
+  header section #banner h1 {
     font-size: 1.5rem;
     font-weight: 500;
   }
 
-  header nav {
+  header section #nav {
     gap: 0.75rem;
   }
 
-  header #settings {
+  header section #settings {
     width: 10%;
     gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header section {
+    padding: 0 0.5rem;
+  }
+
+  header section #nav {
+    display: none;
+  }
+
+  header section #settings {
+    gap: 0.25rem;
+  }
+
+  header #mobile-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  header #mobile-nav img {
+    display: none;
+  }
+}
+
+@media (max-width: 425px) {
+  header section #settings {
+    width: 15%;
+  }
+
+  header #mobile-nav p {
+    display: none;
+  }
+
+  header #mobile-nav img {
+    display: block;
   }
 }
