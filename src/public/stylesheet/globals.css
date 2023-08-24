@@ -50,6 +50,12 @@ header {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  background-color: blue;
+}
+
+header a, header #banner h1 {
+  color: white;
 }
 
 header section {
@@ -70,12 +76,8 @@ header section #banner {
   gap: 0.5rem;
 }
 
-header section #banner img {
-  margin-bottom: 0.5rem;
-}
-
 header section #banner h1 {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 header section #nav {
@@ -155,24 +157,12 @@ footer {
   header #mobile-nav {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-  }
-
-  header #mobile-nav img {
-    display: none;
+    justify-content: space-around;
   }
 }
 
 @media (max-width: 425px) {
   header section #settings {
     width: 15%;
-  }
-
-  header #mobile-nav p {
-    display: none;
-  }
-
-  header #mobile-nav img {
-    display: block;
   }
 }
