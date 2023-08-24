@@ -31,12 +31,8 @@ app.get("/services", (req: Request, res: Response) => {
   res.render("services");
 });
 
-app.get("/about", (req: Request, res: Response) => {
-  res.render("about");
-});
-
-app.get("/contact", (req: Request, res: Response) => {
-  res.render("contact");
+app.get("/profile", (req: Request, res: Response) => {
+  res.render("profile");
 });
 
 app.get("*", (req: Request, res: Response) => {
