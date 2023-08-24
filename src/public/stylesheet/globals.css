@@ -34,11 +34,7 @@ body {
 
 main {
   width: 100%;
-  height: 100vh;
-}
-
-#services {
-  min-height: 177.5vh;
+  min-height: 100vh;
 }
 
 header {
@@ -54,7 +50,8 @@ header {
   background-color: blue;
 }
 
-header a, header #banner h1 {
+header a,
+header #banner h1 {
   color: white;
 }
 
@@ -110,9 +107,9 @@ header #mobile-nav {
 
 footer {
   width: 100%;
-  height: 25vh;
+  height: 12.5vh;
 
-  background: black;
+  background: blue;
   color: white;
 }
 
@@ -157,11 +154,15 @@ footer {
   header #mobile-nav {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
 }
 
 @media (max-width: 425px) {
+  header section #banner {
+    gap: 0.25rem;
+  }
+
   header section #settings {
     width: 15%;
   }
