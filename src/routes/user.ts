@@ -1,10 +1,14 @@
-import { Router } from "express";
+import { Request, Response, Router, request } from "express";
 import userController from "../controllers/user";
 
-const userRouter = Router()
+const userRouter = Router();
 
 userRouter
   .route("/signup")
-  .post((req, res) => userController.signup(req, res))
+  .post((req: Request, res: Response) => userController.signup(req, res));
 
-export default userRouter
+userRouter
+  .route("/signin")
+  .post((req: Request, res: Response) => userController.signin(req, res));
+
+export default userRouter;

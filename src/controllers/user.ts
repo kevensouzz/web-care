@@ -1,6 +1,6 @@
 import { userModel, UserDocument } from "../models/user";
 import { Request, Response } from "express";
-import { genSalt, hash } from "bcrypt";
+import { compare, genSalt, hash } from "bcrypt";
 
 interface SignupRequest extends Request {
   body: {
@@ -10,23 +10,30 @@ interface SignupRequest extends Request {
   };
 }
 
+interface SigninRequest extends Request {
+  body: {
+    username: string;
+    password: string;
+  };
+}
+
 export default class userController {
   static async signup(req: SignupRequest, res: Response) {
     try {
       const { username, password, confirmPassword } = req.body;
 
       if (!username || !password || !confirmPassword) {
-        res.status(422).json("there are required fields no filled in!");
+        return res.status(422).json("there are required fields no filled in!");
       }
 
       if (password != confirmPassword) {
-        res.status(422).json("password doesn't match confirmation!");
+        return res.status(422).json("password doesn't match confirmation!");
       }
 
-      const users = await userModel.findOne({ username: username });
+      const userExist = await userModel.findOne({ username: username });
 
-      if (users) {
-        res
+      if (userExist) {
+        return res
           .status(422)
           .json("there is already a has user registred with this username!");
       }
@@ -34,23 +41,46 @@ export default class userController {
       const salt = await genSalt(12);
       const passwordHash = await hash(password, salt);
 
-      const user: UserDocument = new userModel({
+      const createdUser: UserDocument = new userModel({
         username: username,
         password: passwordHash,
       });
 
-      const response = await userModel.create(user);
+      const response = await userModel.create(createdUser);
 
-      res.status(201).json(response);
+      return res.status(201).json(response);
     } catch (error) {
-      res.status(500).json(error);
+      return res.status(500).json(error);
     }
   }
 
-  static async signin(req: Request, res: Response) {
+  static async signin(req: SigninRequest, res: Response) {
     try {
+      const { username, password } = req.body;
+
+      if (!username || !password) {
+        return res.status(422).json("there are required fields no filled in!");
+      }
+
+      const userExist = await userModel.findOne({ username: username });
+
+      if (!userExist) {
+        return res
+          .status(404)
+          .json("there isn't user registered with this username!");
+      }
+
+      const checkPass = await compare(password, userExist.password);
+
+      if (!checkPass) {
+        return res.status(422).json("invalid password!");
+      }
+
+      return res
+        .status(200)
+        .json(`${userExist.username} has successfully authorized!`);
     } catch (error) {
-      res.status(500).json(error);
+      return res.status(500).json(error);
     }
   }
 }
