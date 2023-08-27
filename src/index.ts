@@ -2,10 +2,15 @@ import dotenv from "dotenv";
 import path from "path";
 import express, { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
+import router from "./routes/router";
 
 dotenv.config();
-const PORT: string | number = process.env.PORT || 5000;
 const app = express();
+const PORT: string | number = process.env.PORT || 5000;
+const dbUSER = process.env.DB_USER;
+const dbPASS = process.env.DB_PASS;
+const dbHOST = process.env.DB_HOST;
+const dbURL = `mongodb+srv://${dbUSER}:${dbPASS}@${dbHOST}`;
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   if (req.path.endsWith("/") && req.path.length > 1) {
@@ -24,38 +29,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/home", (req: Request, res: Response) => {
-  res.status(200).render("index");
-});
-
-app.get("/services", (req: Request, res: Response) => {
-  res.status(200).render("services");
-});
-
-app.get("/profile", (req: Request, res: Response) => {
-  res.status(200).render("profile");
-});
-
-app.get("*", (req: Request, res: Response) => {
-  res.status(301).redirect("/home");
-});
-
-app.post("/signup", async (req, res) => {
-  const { username, password, confirmPassword } = req.body;
-
-  if (!username || !password || !confirmPassword) {
-    return res.status(422).json("there are required fields no filled in!");
-  }
-
-  if (password != confirmPassword) {
-    return res.status(422).json("password doesn't match confirmation!");
-  }
-});
-
-const dbUSER = process.env.DB_USER;
-const dbPASS = process.env.DB_PASS;
-const dbHOST = process.env.DB_HOST;
-const dbURL = `mongodb+srv://${dbUSER}:${dbPASS}@${dbHOST}`;
+app.use("/", router)
 
 mongoose
   .connect(dbURL)
