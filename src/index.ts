@@ -40,6 +40,18 @@ app.get("*", (req: Request, res: Response) => {
   res.status(301).redirect("/home");
 });
 
+app.post("/signup", async (req, res) => {
+  const { username, password, confirmPassword } = req.body;
+
+  if (!username || !password || !confirmPassword) {
+    return res.status(422).json("there are required fields no filled in!");
+  }
+
+  if (password != confirmPassword) {
+    return res.status(422).json("password doesn't match confirmation!");
+  }
+});
+
 const dbUSER = process.env.DB_USER;
 const dbPASS = process.env.DB_PASS;
 const dbHOST = process.env.DB_HOST;
