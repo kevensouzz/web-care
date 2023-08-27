@@ -1,9 +1,17 @@
-import userModel from "../models/user";
+import { userModel, UserDocument } from "../models/user";
 import { Request, Response } from "express";
 import { genSalt, hash } from "bcrypt";
 
+interface SignupRequest extends Request {
+  body: {
+    username: string;
+    password: string;
+    confirmPassword: string;
+  };
+}
+
 export default class userController {
-  static async signup(req: Request, res: Response) {
+  static async signup(req: SignupRequest, res: Response) {
     try {
       const { username, password, confirmPassword } = req.body;
 
@@ -26,7 +34,7 @@ export default class userController {
       const salt = await genSalt(12);
       const passwordHash = await hash(password, salt);
 
-      const user = new userModel({
+      const user: UserDocument = new userModel({
         username: username,
         password: passwordHash,
       });
@@ -34,6 +42,13 @@ export default class userController {
       const response = await userModel.create(user);
 
       res.status(201).json(response);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
+
+  static async signin(req: Request, res: Response) {
+    try {
     } catch (error) {
       res.status(500).json(error);
     }
