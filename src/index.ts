@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import path from "path";
 import express, { Request, Response, NextFunction } from "express";
+import mongoose from "mongoose";
 
 dotenv.config();
 const PORT: string | number = process.env.PORT || 5000;
@@ -24,21 +25,30 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/home", (req: Request, res: Response) => {
-  res.render("index");
+  res.status(200).render("index");
 });
 
 app.get("/services", (req: Request, res: Response) => {
-  res.render("services");
+  res.status(200).render("services");
 });
 
 app.get("/profile", (req: Request, res: Response) => {
-  res.render("profile");
+  res.status(200).render("profile");
 });
 
 app.get("*", (req: Request, res: Response) => {
-  res.redirect("/home");
+  res.status(301).redirect("/home");
 });
 
-app.listen(PORT, () => {
-  console.log("SERVER IS ON!");
-});
+const dbUSER = process.env.DB_USER;
+const dbPASS = process.env.DB_PASS;
+const dbHOST = process.env.DB_HOST;
+const dbURL = `mongodb+srv://${dbUSER}:${dbPASS}@${dbHOST}`;
+
+mongoose
+  .connect(dbURL)
+  .then(() => {
+    console.log("DATABASE IS ON!");
+    app.listen(PORT, () => console.log("SERVER IS ON!"));
+  })
+  .catch((error) => console.log(error));
