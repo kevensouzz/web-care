@@ -12,16 +12,6 @@ const dbPASS = process.env.DB_PASS;
 const dbHOST = process.env.DB_HOST;
 const dbURL = `mongodb+srv://${dbUSER}:${dbPASS}@${dbHOST}`;
 
-app.use((req: Request, res: Response, next: NextFunction) => {
-  if (req.path.endsWith("/") && req.path.length > 1) {
-    const newPath = req.path.slice(0, -1);
-    const query = req.url.slice(req.path.length);
-    res.redirect(301, newPath + query);
-  } else {
-    next();
-  }
-});
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
