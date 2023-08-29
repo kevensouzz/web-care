@@ -19,12 +19,4 @@ viewsRouter.route("/").get((req: Request, res: Response) => {
   res.status(301).redirect("/home");
 });
 
-viewsRouter.route("*").get((req: Request, res: Response) => {
-  const acceptHeader = req.header("Accept");
-
-  acceptHeader && acceptHeader.includes("text/html")
-    ? res.status(404).render("404")
-    : res.status(404).send("404 ):");
-});
-
 export default viewsRouter;
