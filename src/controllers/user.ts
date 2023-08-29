@@ -1,24 +1,10 @@
 import { userModel, UserDocument } from "../models/user";
 import { Request, Response } from "express";
 import { compare, genSalt, hash } from "bcrypt";
-
-interface SignupRequest extends Request {
-  body: {
-    username: string;
-    password: string;
-    confirmPassword: string;
-  };
-}
-
-interface SigninRequest extends Request {
-  body: {
-    username: string;
-    password: string;
-  };
-}
+import { Secret, sign } from "jsonwebtoken";
 
 export default class userController {
-  static async signup(req: SignupRequest, res: Response) {
+  static async signup(req: Request, res: Response) {
     try {
       const { username, password, confirmPassword } = req.body;
 
@@ -54,8 +40,14 @@ export default class userController {
     }
   }
 
-  static async signin(req: SigninRequest, res: Response) {
+  static async signin(req: Request, res: Response) {
     try {
+      const secret = process.env.JWT_SECRET;
+
+      if (!secret) {
+        return res.status(500).json("JWT secret not configured");
+      }
+
       const { username, password } = req.body;
 
       if (!username || !password) {
@@ -76,9 +68,42 @@ export default class userController {
         return res.status(422).json("invalid password!");
       }
 
-      return res
-        .status(200)
-        .json(`${userExist.username} has successfully authorized!`);
+      const token = sign(
+        {
+          id: userExist._id,
+        },
+        secret as Secret
+      );
+
+      return res.status(200).json({
+        success: `${userExist.username} has successfully authorized!`,
+        token: token,
+      });
+    } catch (error) {
+      return res.status(500).json(error);
+    }
+  }
+
+  static async getAllUsers(req: Request, res: Response) {
+    try {
+      const users = await userModel.find({}, "-password");
+      return res.status(200).json(users);
+    } catch (error) {
+      return res.status(500).json(error);
+    }
+  }
+
+  static async getUserById(req: Request, res: Response) {
+    try {
+      const id = req.params.id;
+
+      const user = await userModel.findById(id, "-password");
+
+      if (!user) {
+        return res.status(404).json("user not found!");
+      }
+
+      return res.status(200).json(user);
     } catch (error) {
       return res.status(500).json(error);
     }
