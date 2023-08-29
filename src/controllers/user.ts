@@ -92,4 +92,24 @@ export default class userController {
       return res.status(500).json(error);
     }
   }
+
+  static async deleteUser(req: Request, res: Response) {
+    try {
+      const id = req.params.id;
+
+      const user = await userModel.findById(id);
+
+      if (!user) {
+        res.status(404).json("User not found!");
+      }
+
+      const userDeleted = await userModel.findByIdAndDelete(id);
+
+      return res
+        .status(200)
+        .json(`${userDeleted?.username} has been successfully deleted!`);
+    } catch (error) {
+      return res.status(500).json(error);
+    }
+  }
 }
