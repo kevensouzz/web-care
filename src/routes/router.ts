@@ -13,7 +13,7 @@ router.get("*", (req: Request, res: Response) => {
 
   acceptHeader && acceptHeader.includes("text/html")
     ? res.status(404).render("404")
-    : res.status(404).send("404 ):");
+    : res.status(404).send("path not found! 404 ):");
 });
 
 export default router;
