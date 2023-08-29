@@ -11,18 +11,18 @@ body {
 }
 
 .error-code {
-  color: #fff;
+  color: #ffffff;
   font-size: 6rem;
 }
 
 .error-message {
-  color: #fff;
+  color: #ffffff;
   font-size: 1.5rem;
   margin-top: 10px;
 }
 
 .home-link {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   border: 1px solid #fff;
   padding: 10px 20px;
