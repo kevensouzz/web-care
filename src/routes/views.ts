@@ -1,21 +1,21 @@
 import { Router } from "express";
-import { Request, Response } from "express";
+import { Response } from "express";
 
 const viewsRouter = Router();
 
-viewsRouter.get("/home", (req: Request, res: Response) => {
+viewsRouter.get("/home", (res: Response) => {
   res.status(200).render("index");
 });
 
-viewsRouter.get("/services", (req: Request, res: Response) => {
+viewsRouter.get("/services", (res: Response) => {
   res.status(200).render("services");
 });
 
-viewsRouter.get("/profile", (req: Request, res: Response) => {
+viewsRouter.get("/profile", (res: Response) => {
   res.status(200).render("profile");
 });
 
-viewsRouter.get("/", (req: Request, res: Response) => {
+viewsRouter.get("/", (res: Response) => {
   res.status(301).redirect("/home");
 });
 
