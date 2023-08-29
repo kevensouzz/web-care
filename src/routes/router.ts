@@ -8,7 +8,7 @@ router.use("/", viewsRouter);
 
 router.use("/users", userRouter);
 
-router.route("*").get((req: Request, res: Response) => {
+router.get("*", (req: Request, res: Response) => {
   const acceptHeader = req.header("Accept");
 
   acceptHeader && acceptHeader.includes("text/html")

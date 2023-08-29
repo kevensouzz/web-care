@@ -1,22 +1,14 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
 import userController from "../controllers/user";
 
 const userRouter = Router();
 
-userRouter
-  .route("/signup")
-  .post((req: Request, res: Response) => userController.signup(req, res));
+userRouter.post("/signup", userController.signup);
 
-userRouter
-  .route("/signin")
-  .post((req: Request, res: Response) => userController.signin(req, res));
+userRouter.post("/signin", userController.signin);
 
-userRouter
-  .route("/")
-  .get((req: Request, res: Response) => userController.getAllUsers(req, res));
+userRouter.get("/", userController.getAllUsers);
 
-userRouter
-  .route("/:id")
-  .get((req: Request, res: Response) => userController.getUserById(req, res));
+userRouter.get("/:id", userController.getUserById);
 
 export default userRouter;
