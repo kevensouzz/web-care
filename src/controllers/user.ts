@@ -1,7 +1,7 @@
 import { userModel, UserDocument } from "../models/user";
 import { Request, Response } from "express";
 import { compare, genSalt, hash } from "bcrypt";
-import { Secret, sign } from "jsonwebtoken";
+import createUserToken from "../helpers/createUserToken";
 
 export default class userController {
   static async signup(req: Request, res: Response) {
@@ -32,9 +32,9 @@ export default class userController {
         password: passwordHash,
       });
 
-      const response = await userModel.create(createdUser);
+      const newUser = await createdUser.save();
 
-      return res.status(201).json(response);
+      return await createUserToken(newUser, res);
     } catch (error) {
       return res.status(500).json(error);
     }
@@ -42,12 +42,6 @@ export default class userController {
 
   static async signin(req: Request, res: Response) {
     try {
-      const secret = process.env.JWT_SECRET;
-
-      if (!secret) {
-        return res.status(500).json("JWT secret not configured");
-      }
-
       const { username, password } = req.body;
 
       if (!username || !password) {
@@ -68,17 +62,7 @@ export default class userController {
         return res.status(422).json("invalid password!");
       }
 
-      const token = sign(
-        {
-          id: userExist._id,
-        },
-        secret as Secret
-      );
-
-      return res.status(200).json({
-        success: `${userExist.username} has successfully authorized!`,
-        token: token,
-      });
+      return await createUserToken(userExist, res);
     } catch (error) {
       return res.status(500).json(error);
     }
