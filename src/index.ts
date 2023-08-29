@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import path from "path";
-import express, { Request, Response, NextFunction } from "express";
+import express from "express";
 import mongoose from "mongoose";
 import router from "./routes/router";
 
@@ -19,7 +19,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", router)
+app.use("/", router);
 
 mongoose
   .connect(dbURL)
