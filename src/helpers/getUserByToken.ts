@@ -1,4 +1,4 @@
-import { JwtPayload, verify } from "jsonwebtoken";
+import { JwtPayload, Secret, verify } from "jsonwebtoken";
 import { userModel } from "../models/user";
 
 export default async function getUserByToken(token: string | undefined) {
@@ -6,11 +6,15 @@ export default async function getUserByToken(token: string | undefined) {
     return null;
   }
 
-  const decoded = verify(token, "nossosecret") as JwtPayload;
+  const decoded = verify(token, process.env.JWT_SECRET as Secret);
 
-  const userId = decoded.id;
+  if (typeof decoded === "object" && "id" in decoded) {
+    const userId = (decoded as JwtPayload).id;
 
-  const user = await userModel.findOne({ _id: userId });
+    const user = await userModel.findOne({ _id: userId });
 
-  return user;
+    return user;
+  }
+
+  return null;
 }
