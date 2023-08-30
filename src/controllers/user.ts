@@ -93,6 +93,8 @@ export default class userController {
     }
   }
 
+  static async updateUser(req: Request, res: Response) {}
+
   static async deleteUser(req: Request, res: Response) {
     try {
       const id = req.params.id;
