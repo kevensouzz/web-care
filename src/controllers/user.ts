@@ -2,6 +2,8 @@ import { userModel, UserDocument } from "../models/user";
 import { Request, Response } from "express";
 import { compare, genSalt, hash } from "bcrypt";
 import createUserToken from "../helpers/createUserToken";
+import getUserToken from "../helpers/getUserToken";
+import getUserByToken from "../helpers/getUserByToken";
 
 export default class userController {
   static async signup(req: Request, res: Response) {
@@ -93,7 +95,48 @@ export default class userController {
     }
   }
 
-  static async updateUser(req: Request, res: Response) {}
+  static async updateUser(req: Request, res: Response) {
+    const token = getUserToken(req);
+    const user = await getUserByToken(token);
+
+    if (!user) {
+      return res.status(401).json("User not authenticated!");
+    }
+
+    const [username, password, confirmPassword] = req.body;
+
+    if (!username) {
+      return res.status(422).json("username is required!");
+    }
+
+    const userExists = await userModel.findOne({ username: username });
+
+    if (userExists && user.username !== username) {
+      return res.status(422).json("this username already is used!");
+    }
+
+    if (password != confirmPassword) {
+      res.status(422).json("password doesn't match confirmation!");
+    } else if (password == confirmPassword && password != null) {
+      const salt = await genSalt(12);
+      const reqPassword = req.body.password;
+
+      const passwordHash = await hash(reqPassword, salt);
+
+      user.password = passwordHash;
+    }
+
+    try {
+      const updatedUser = await userModel.findOneAndUpdate(
+        { _id: user._id },
+        { $set: user },
+        { new: true }
+      );
+      res.json(["user updated successfully", updatedUser]);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
 
   static async deleteUser(req: Request, res: Response) {
     try {
