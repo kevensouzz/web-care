@@ -22,7 +22,7 @@ export default function verifyUserToken(
   }
 
   if (!process.env.JWT_SECRET) {
-    return res.status(500).json("JWT secret not configured.");
+    return res.status(500).json("JWT secret not configured!");
   }
 
   try {

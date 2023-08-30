@@ -10,7 +10,7 @@ export default async function createUserToken(
     const secret = process.env.JWT_SECRET;
 
     if (!secret) {
-      return res.status(500).json("JWT secret not configured");
+      return res.status(500).json("JWT secret not configured!");
     }
 
     const token = sign(
