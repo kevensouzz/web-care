@@ -116,7 +116,7 @@ export default class userController {
     }
 
     if (password != confirmPassword) {
-      res.status(422).json("password doesn't match confirmation!");
+      return res.status(422).json("password doesn't match confirmation!");
     } else if (password == confirmPassword && password != null) {
       const salt = await genSalt(12);
       const reqPassword = req.body.password;
