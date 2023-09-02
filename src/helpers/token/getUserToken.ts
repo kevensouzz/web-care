@@ -1,17 +1,18 @@
 import { Request } from "express";
+import { ApiError } from "../error/apiErrors";
 
 export default function getUserToken(req: Request) {
   try {
     const authHeaders = req.headers.authorization;
 
     if (!authHeaders) {
-      throw new Error("Cabeçalho de autorização ausente na solicitação.");
+      throw new ApiError("missing authorization header in request!", 204);
     }
 
     const parts = authHeaders.split(" ");
 
     if (parts.length !== 2 || parts[0] !== "Bearer") {
-      throw new Error("Formato de cabeçalho de autorização inválido.");
+      throw new ApiError("invalid authorization header format!", 422);
     }
 
     const token = parts[1];
