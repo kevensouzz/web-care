@@ -3,6 +3,7 @@ import path from "path";
 import express, { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 import router from "./routes/router";
+import errorMiddleware from "./middlewares/error";
 
 dotenv.config();
 const app = express();
@@ -21,9 +22,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(router);
 
-app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
-  return res.status(500).json(error);
-});
+app.use(errorMiddleware);
 
 mongoose
   .connect(dbConnectionURL)
