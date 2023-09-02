@@ -4,79 +4,70 @@ import { compare, genSalt, hash } from "bcrypt";
 import createUserToken from "../helpers/token/createUserToken";
 import getUserToken from "../helpers/token/getUserToken";
 import getUserByToken from "../helpers/token/getUserByToken";
+import ApiError from "../helpers/error/apiErrors";
 
 export default class userController {
   static async signup(req: Request, res: Response) {
     const { username, password, confirmPassword } = req.body;
 
     if (!username || !password || !confirmPassword) {
-      return res.status(422).json("there are required fields no filled in!");
+      throw new ApiError("there are required fields no filled in!", 422);
     }
 
     if (password != confirmPassword) {
-      return res.status(422).json("password doesn't match confirmation!");
+      throw new ApiError("password doesn't match confirmation!", 422);
     }
 
     const userExist = await userModel.findOne({ username: username });
 
     if (userExist) {
-      return res
-        .status(422)
-        .json("there is already a has user registred with this username!");
+      throw new ApiError(
+        "there is already a has user registred with this username!",
+        422
+      );
     }
 
-    try {
-      const salt = await genSalt(12);
-      const passwordHash = await hash(password, salt);
+    const salt = await genSalt(12);
+    const passwordHash = await hash(password, salt);
 
-      const createdUser: UserDocument = new userModel({
-        username: username,
-        password: passwordHash,
-      });
+    const createdUser: UserDocument = new userModel({
+      username: username,
+      password: passwordHash,
+    });
 
-      const newUser = await createdUser.save();
+    const newUser = await createdUser.save();
 
-      return await createUserToken(newUser, res);
-    } catch (error) {
-      return res.status(500).json(error);
-    }
+    return await createUserToken(newUser, res);
   }
 
   static async signin(req: Request, res: Response) {
     const { username, password } = req.body;
 
     if (!username || !password) {
-      return res.status(422).json("there are required fields no filled in!");
+      throw new ApiError("there are required fields no filled in!", 422);
     }
 
     const userExist = await userModel.findOne({ username: username });
 
     if (!userExist) {
-      return res
-        .status(404)
-        .json("there isn't user registered with this username!");
+      throw new ApiError(
+        "there isn't user registered with this username!",
+        404
+      );
     }
 
     const checkPass = await compare(password, userExist.password);
 
     if (!checkPass) {
-      return res.status(422).json("invalid password!");
+      throw new ApiError("invalid password!", 422);
     }
 
-    try {
-      return await createUserToken(userExist, res);
-    } catch (error) {
-      return res.status(500).json(error);
-    }
+    return await createUserToken(userExist, res);
   }
 
   static async getAllUsers(req: Request, res: Response) {
-    try {
-      const users = await userModel.find({}, "-password");
-      return res.status(200).json(users);
-    } catch (error) {
-      return res.status(500).json(error);
-    }
+    const users = await userModel.find({}, "-password");
+    return res.status(200).json(users);
   }
 
   static async getUserById(req: Request, res: Response) {
@@ -85,14 +76,10 @@ export default class userController {
     const user = await userModel.findById(id, "-password");
 
     if (!user) {
-      return res.status(404).json("user not found!");
+      throw new ApiError("user not found!", 404);
     }
 
-    try {
-      return res.status(200).json(user);
-    } catch (error) {
-      return res.status(500).json(error);
-    }
+    return res.status(200).json(user);
   }
 
   static async updateUser(req: Request, res: Response) {
@@ -102,27 +89,26 @@ export default class userController {
     const { username, password } = req.body;
 
     if (!user) {
-      return res.status(401).json("User not authenticated!");
+      throw new ApiError("User not authenticated!", 401);
     }
 
     user = await userModel.findById(user.id);
 
     if (!user) {
-      return res.status(404).json("user not found!");
+      throw new ApiError("user not found!", 404);
     }
 
     const usedUsername = await userModel.findOne({ username: username });
 
     if (usedUsername) {
-      return res.status(422).json("this username is already in use!");
+      throw new ApiError("this username is already in use!", 422);
     } else if (user.username == username) {
-      return res.status(422).json("you are already using this username!");
+      throw new ApiError("you are already using this username!", 422);
     } else if (user.password == password) {
-      return res
-        .status(422)
-        .json(
-          "the password you are trying to use has already been used before!"
-        );
+      throw new ApiError(
+        "the password you are trying to use has already been used before!",
+        422
+      );
     }
 
     if (
@@ -158,17 +144,13 @@ export default class userController {
     const user = await userModel.findById(id);
 
     if (!user) {
-      res.status(404).json("User not found!");
+      throw new ApiError("user not found!", 404);
     }
 
-    try {
-      const userDeleted = await userModel.findByIdAndDelete(id);
+    const userDeleted = await userModel.findByIdAndDelete(id);
 
-      return res
-        .status(200)
-        .json(`${userDeleted?.username} has been successfully deleted!`);
-    } catch (error) {
-      return res.status(500).json(error);
-    }
+    return res
+      .status(200)
+      .json(`${userDeleted?.username} has been successfully deleted!`);
   }
 }
