@@ -1,6 +1,6 @@
 import { Response } from "express";
 import { Secret, sign } from "jsonwebtoken";
-import { UserDocument } from "../models/user";
+import { UserDocument } from "../../models/user";
 
 export default async function createUserToken(
   user: UserDocument,
@@ -17,7 +17,10 @@ export default async function createUserToken(
       {
         id: user._id,
       },
-      secret as Secret
+      secret as Secret,
+      {
+        expiresIn: "8h",
+      }
     );
 
     return res.status(200).json(["success!", { token: token }]);
