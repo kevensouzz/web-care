@@ -5,3 +5,96 @@
   --blue: rgb(75, 75, 255);
   --red: rgb(255, 75, 75);
 }
+
+main {
+  padding-top: 7.5vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  height: 425px;
+  width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+form header {
+  height: 10%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+form header img {
+  margin-top: 0.5rem;
+}
+
+form header h1 span {
+  font-size: 2.5rem;
+  color: var(--blue);
+}
+
+form .field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  color: var(--blue);
+  font-size: 1.25rem;
+}
+
+form input {
+  transition: none;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--blue);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+form input:focus {
+  outline: 0.175rem solid var(--blue);
+}
+
+form input::selection {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+form button {
+  color: var(--blue);
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: 0.15rem solid var(--blue);
+  border-radius: 0.25rem;
+}
+
+form button:hover,
+form button:focus {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+form #link-to-signin {
+  width: 100%;
+  height: 5vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+form #link-to-signin a {
+  color: var(--blue);
+}

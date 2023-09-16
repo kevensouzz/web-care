@@ -6,7 +6,46 @@
 <body>
   <%- include('./partials/header') %>
   <main>
-    signup
+
+    <form method="post">
+
+      <header>
+        <h1>
+          <span>S</span>ign <span>U</span>p
+        </h1>
+        <img src="/svg/sign/sign.svg" alt="Sign's icon" width="24px" height="24px">
+      </header>
+
+      <span class="field">
+        <label for="username">
+          Username
+        </label>
+        <input type="text" name="username" required>
+      </span>
+
+      <span class="field">
+        <label for="password">
+          Password
+        </label>
+        <input type="password" name="password" required>
+      </span>
+
+      <span class="field">
+        <label for="ConfirmPassword">
+          Confirm Password
+        </label>
+        <input type="password" name="ConfirmPassword" required>
+      </span>
+
+      <button type="submit">Submit</button>
+
+      <div id="link-to-signin">
+        Already have an account?
+        <a href="/signin">Sign In</a>
+      </div>
+
+    </form>
+
   </main>
 </body>
 
