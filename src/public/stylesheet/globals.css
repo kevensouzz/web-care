@@ -1,3 +1,11 @@
+:root {
+  --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
+  --gray: rgb(125, 125, 125);
+  --blue: rgb(75, 75, 255);
+  --red: rgb(255, 75, 75);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +13,7 @@
   list-style: none;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
-  color: black;
+  color: var(--white);
   transition: all 0.3s;
   user-select: none;
   -webkit-user-select: none;
@@ -17,17 +25,17 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: white;
+  background: var(--black);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(125, 125, 125);
+  background: var(--red);
 }
 
 body {
   display: flex;
-  flex-direction: column;
   scroll-behavior: smooth;
+  background-color: var(--black);
 }
 
 main {
@@ -44,13 +52,11 @@ header {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
-  background-color: blue;
 }
 
 header a,
 header #banner h1 {
-  color: white;
+  color: var(--blue);
 }
 
 header section {

@@ -1,5 +1,13 @@
+:root {
+  --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
+  --gray: rgb(125, 125, 125);
+  --blue: rgb(75, 75, 255);
+  --red: rgb(255, 75, 75);
+}
+
 body {
-  background-color: #0000ff;
+  background-color: var(--blue);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,27 +19,28 @@ body {
 }
 
 .error-code {
-  color: #ffffff;
+  color: var(--white);
   font-size: 6rem;
 }
 
 .error-message {
-  color: #ffffff;
+  color: var(--white);
   font-size: 1.5rem;
   margin-top: 10px;
 }
 
 .home-link {
-  color: #ffffff;
+  color: var(--white);
   text-decoration: none;
-  border: 1px solid #fff;
+  border: 1px solid var(--white);
   padding: 10px 20px;
   margin-top: 20px;
   display: inline-block;
   transition: background-color 0.3s, color 0.3s;
+  border-radius: 0.5rem;
 }
 
 .home-link:hover {
-  background-color: #fff;
-  color: #0000ff;
+  background-color: var(--white);
+  color: var(--blue);
 }
