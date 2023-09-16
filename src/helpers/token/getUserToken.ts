@@ -1,5 +1,5 @@
 import { Request } from "express";
-import { ApiError } from "../error/apiErrors";
+import ApiError from "../error/apiErrors";
 
 export default function getUserToken(req: Request) {
   try {

@@ -1,7 +1,7 @@
 import { Response } from "express";
 import { Secret, sign } from "jsonwebtoken";
 import { UserDocument } from "../../models/user";
-import { ApiError } from "../error/apiErrors";
+import ApiError from "../error/apiErrors";
 
 export default async function createUserToken(
   user: UserDocument,

@@ -6,6 +6,34 @@
 <body>
   <%- include('./partials/header') %>
   <main>
+
+    <form method="post">
+
+      <header>
+        <h1>
+          <span>S</span>ign <span>I</span>n
+        </h1>
+        <img src="/svg/sign/sign.svg" alt="Sign's icon" width="24px" height="24px">
+      </header>
+
+      <span class="field">
+        <label for="username">
+          Username
+        </label>
+        <input type="text" name="username" required>
+      </span>
+
+      <span class="field">
+        <label for="password">
+          Password
+        </label>
+        <input type="password" name password required>
+      </span>
+
+      <button type="submit">Submit</button>
+
+    </form>
+    
   </main>
 </body>
 

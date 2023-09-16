@@ -12,12 +12,19 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  outline: none;
+  border: none;
   font-family: "Poppins", sans-serif;
   color: var(--white);
   transition: all 0.3s;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -43,7 +50,7 @@ main {
   min-height: 100vh;
 }
 
-header {
+#header {
   width: 100%;
 
   position: fixed;
@@ -54,12 +61,12 @@ header {
   flex-direction: column;
 }
 
-header a,
-header #banner h1 {
+#header a,
+#header #banner h1 {
   color: var(--blue);
 }
 
-header section {
+#header section {
   width: 100%;
   min-height: 42px;
   height: 7.5vh;
@@ -70,7 +77,7 @@ header section {
   padding: 0 2.5rem;
 }
 
-header section #banner {
+#header section #banner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,11 +85,11 @@ header section #banner {
   gap: 0.5rem;
 }
 
-header section #banner h1 {
+#header section #banner h1 {
   font-weight: 500;
 }
 
-header section #nav {
+#header section #nav {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,7 +98,7 @@ header section #nav {
   font-size: 1.25rem;
 }
 
-header section #settings {
+#header section #settings {
   width: 12.5%;
 
   display: flex;
@@ -100,11 +107,7 @@ header section #settings {
   gap: 1rem;
 }
 
-header section #settings img {
-  cursor: pointer;
-}
-
-header #mobile-nav {
+#header #mobile-nav {
   width: 100%;
   min-height: 28px;
   height: 5vh;
@@ -112,44 +115,44 @@ header #mobile-nav {
 }
 
 @media (max-width: 1024px) {
-  header section {
+  #header section {
     padding: 0 1rem;
   }
 
-  header section #banner img {
+  #header section #banner img {
     width: 36px;
     height: 36px;
   }
 
-  header section #banner h1 {
+  #header section #banner h1 {
     font-size: 1.5rem;
     font-weight: 500;
   }
 
-  header section #nav {
+  #header section #nav {
     gap: 0.75rem;
   }
 
-  header section #settings {
+  #header section #settings {
     width: 10%;
     gap: 0.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  header section {
+  #header section {
     padding: 0 0.5rem;
   }
 
-  header section #nav {
+  #header section #nav {
     display: none;
   }
 
-  header section #settings {
+  #header section #settings {
     gap: 0.25rem;
   }
 
-  header #mobile-nav {
+  #header #mobile-nav {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -157,11 +160,11 @@ header #mobile-nav {
 }
 
 @media (max-width: 425px) {
-  header section #banner {
+  #header section #banner {
     gap: 0.25rem;
   }
 
-  header section #settings {
+  #header section #settings {
     width: 15%;
   }
 }
