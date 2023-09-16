@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import path from "path";
-import express, { NextFunction, Request, Response } from "express";
+import express from "express";
 import mongoose from "mongoose";
 import router from "./routes/router";
 import errorMiddleware from "./middlewares/error";
