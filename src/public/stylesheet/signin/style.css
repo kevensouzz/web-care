@@ -98,3 +98,34 @@ form #link-to-signup {
 form #link-to-signup a {
   color: var(--blue);
 }
+
+@media (max-width: 500px) {
+  form {
+    height: 400px;
+    width: 90%;
+  }
+
+  form label {
+    font-size: 1.1rem;
+  }
+
+  form input {
+    font-size: 1.1rem;
+  }
+
+  form button {
+    font-size: 1.25rem;
+  }
+
+  form #link-to-signup {
+    gap: 0.1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 320px) {
+  form #link-to-signup {
+    flex-direction: column;
+    text-align: center;
+  }
+}
