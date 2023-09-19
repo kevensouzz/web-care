@@ -1,9 +1,12 @@
 import { Response } from "express";
 import { Secret, sign } from "jsonwebtoken";
-import { User } from "../models/user";
 
 export default async function createUserToken(
-  user: User,
+  user: {
+    username: string;
+    password: string;
+    _id: string;
+  },
   res: Response
 ) {
   const secret = process.env.JWT_SECRET;

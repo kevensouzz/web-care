@@ -1,14 +1,8 @@
 import { Schema, model, Document } from "mongoose";
 
-export interface User {
-  username: string;
-  password: string;
-  _id?: string;
-}
-
 const userModel = model(
   "User",
-  new Schema<User>({
+  new Schema({
     username: {
       type: String,
       required: true,
@@ -16,6 +10,10 @@ const userModel = model(
     password: {
       type: String,
       required: true,
+    },
+    _id: {
+      type: String,
+      require: false,
     },
   })
 );
