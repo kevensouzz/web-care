@@ -1,6 +1,6 @@
 import { JwtPayload, Secret, verify } from "jsonwebtoken";
-import { userModel } from "../../models/user";
-import ApiError from "../apiErrors";
+import userModel from "../models/user";
+import ApiError from "./apiErrors";
 
 export default async function getUserByToken(token: string | undefined) {
   const secret = process.env.JWT_SECRET;

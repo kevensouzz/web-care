@@ -1,10 +1,13 @@
 import { Response } from "express";
 import { Secret, sign } from "jsonwebtoken";
-import { UserDocument } from "../models/user";
 import ApiError from "./apiErrors";
 
 export default async function createUserToken(
-  user: UserDocument,
+  user: {
+    username: string;
+    password: string;
+    _id: string;
+  },
   res: Response
 ) {
   const secret = process.env.JWT_SECRET;
