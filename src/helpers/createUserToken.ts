@@ -1,19 +1,15 @@
 import { Response } from "express";
 import { Secret, sign } from "jsonwebtoken";
-import ApiError from "./apiErrors";
+import { User } from "../models/user";
 
 export default async function createUserToken(
-  user: {
-    username: string;
-    password: string;
-    _id: string;
-  },
+  user: User,
   res: Response
 ) {
   const secret = process.env.JWT_SECRET;
 
   if (!secret) {
-    throw new ApiError("JWT secret not configured!", 500);
+    return res.status(500).json("JWT secret not configured!");
   }
 
   const token = sign(

@@ -1,8 +1,9 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Document } from "mongoose";
 
-interface User {
+export interface User {
   username: string;
   password: string;
+  _id?: string;
 }
 
 const userModel = model(

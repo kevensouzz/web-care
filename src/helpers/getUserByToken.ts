@@ -1,12 +1,12 @@
 import { JwtPayload, Secret, verify } from "jsonwebtoken";
 import userModel from "../models/user";
-import ApiError from "./apiErrors";
+import { response } from "express";
 
 export default async function getUserByToken(token: string | undefined) {
   const secret = process.env.JWT_SECRET;
 
   if (!token) {
-    throw new ApiError("token not found!", 204);
+    return response.status(204).json("token not found!")
   }
 
   const decoded = verify(token, secret as Secret);

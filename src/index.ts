@@ -4,7 +4,6 @@ import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
 import router from "./routes/router";
-import errorMiddleware from "./helpers/error";
 
 dotenv.config();
 const app = express();
@@ -27,8 +26,6 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(router);
-
-app.use(errorMiddleware);
 
 mongoose
   .connect(dbConnectionURL)

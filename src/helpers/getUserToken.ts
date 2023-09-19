@@ -1,18 +1,19 @@
-import { Request } from "express";
-import ApiError from "./apiErrors";
+import { Request, response } from "express";
 
 export default function getUserToken(req: Request) {
   try {
     const authHeaders = req.headers.authorization;
 
     if (!authHeaders) {
-      throw new ApiError("missing authorization header in request!", 204);
+      return response
+        .status(204)
+        .json("missing authorization header in request!");
     }
 
     const parts = authHeaders.split(" ");
 
     if (parts.length !== 2 || parts[0] !== "Bearer") {
-      throw new ApiError("invalid authorization header format!", 422);
+      return response.status(422).json("invalid authorization header format!");
     }
 
     const token = parts[1];
