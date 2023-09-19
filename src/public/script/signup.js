@@ -6,14 +6,11 @@ form.addEventListener("submit", (event) => {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
 
-  fetch("https://reqres.in/api/users", {
+  fetch("http://localhost:5000/users/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-  })
-  .then((res) => res.json()
-  .then((data) => console.log(data))
-  );
+  });
 });

@@ -4,7 +4,7 @@ import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
 import router from "./routes/router";
-import errorMiddleware from "./middlewares/error";
+import errorMiddleware from "./helpers/error";
 
 dotenv.config();
 const app = express();

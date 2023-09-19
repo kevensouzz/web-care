@@ -1,10 +1,10 @@
-import { userModel, UserDocument } from "../models/user";
+import userModel from "../models/user";
 import { Request, Response } from "express";
 import { compare, genSalt, hash } from "bcrypt";
-import createUserToken from "../helpers/token/createUserToken";
-import getUserToken from "../helpers/token/getUserToken";
-import getUserByToken from "../helpers/token/getUserByToken";
-import ApiError from "../helpers/error/apiErrors";
+import createUserToken from "../helpers/createUserToken";
+import getUserToken from "../helpers/getUserToken";
+import getUserByToken from "../helpers/getUserByToken";
+import ApiError from "../helpers/apiErrors";
 
 export default class userController {
   static async signup(req: Request, res: Response) {
@@ -27,17 +27,21 @@ export default class userController {
       );
     }
 
-    const salt = await genSalt(12);
-    const passwordHash = await hash(password, salt);
+    try {
+      const salt = await genSalt(12);
+      const passwordHash = await hash(password, salt);
 
-    const createdUser: UserDocument = new userModel({
-      username: username,
-      password: passwordHash,
-    });
+      const createdUser = new userModel({
+        username: username,
+        password: passwordHash,
+      });
 
-    const newUser = await createdUser.save();
+      const newUser = await createdUser.save();
 
-    return await createUserToken(newUser, res);
+      return await createUserToken(newUser, res);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   static async signin(req: Request, res: Response) {
@@ -56,13 +60,17 @@ export default class userController {
       );
     }
 
-    const checkPass = await compare(password, userExist.password);
+    try {
+      const checkPass = await compare(password, userExist.password);
 
-    if (!checkPass) {
-      throw new ApiError("invalid password!", 422);
+      if (!checkPass) {
+        throw new ApiError("invalid password!", 422);
+      }
+
+      return await createUserToken(userExist, res);
+    } catch (error) {
+      console.log(error);
     }
-
-    return await createUserToken(userExist, res);
   }
 
   static async getAllUsers(req: Request, res: Response) {

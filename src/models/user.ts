@@ -5,9 +5,7 @@ interface User {
   password: string;
 }
 
-interface UserDocument extends User, Document {}
-
-const userModel = model<UserDocument>(
+const userModel = model(
   "User",
   new Schema<User>({
     username: {
@@ -21,4 +19,4 @@ const userModel = model<UserDocument>(
   })
 );
 
-export { userModel, UserDocument };
+export default userModel;

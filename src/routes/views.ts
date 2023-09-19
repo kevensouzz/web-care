@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import verifyUserToken from "../helpers/token/verifyUserToken";
+import verifyUserToken from "../helpers/verifyUserToken";
 
 const viewsRouter = Router();
 
