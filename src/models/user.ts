@@ -1,6 +1,13 @@
-import { Schema, model } from "mongoose";
+import { Document, Schema, model } from "mongoose";
 
-const userModel = model(
+interface User {
+  username: string;
+  password: string;
+}
+
+export interface UserDocument extends User, Document {}
+
+const userModel = model<UserDocument>(
   "User",
   new Schema({
     username: {
