@@ -1,4 +1,4 @@
-import { Schema, model, Document } from "mongoose";
+import { Schema, model } from "mongoose";
 
 const userModel = model(
   "User",
@@ -10,10 +10,6 @@ const userModel = model(
     password: {
       type: String,
       required: true,
-    },
-    _id: {
-      type: String,
-      require: false,
     },
   })
 );
