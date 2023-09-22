@@ -46,13 +46,13 @@ export default class userController {
     const { username, password } = req.body;
 
     if (!username || !password) {
-      return res.status(422).json("there are required fields no filled in!");
+      return res.status(422).json("incorrect or unregistered information!");
     }
 
     const userExist = await userModel.findOne({ username: username });
 
     if (!userExist) {
-      return res.status(404).json("there are required fields no filled in!");
+      return res.status(404).json("incorrect or unregistered information!");
     }
 
     try {
