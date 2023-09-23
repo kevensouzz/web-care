@@ -22,5 +22,5 @@ export default async function createUserToken(
     }
   );
 
-  return res.status(200).json(["success!", { token: token }]);
+  return res.status(200).json(token);
 }
