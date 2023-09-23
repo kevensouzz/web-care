@@ -1,14 +1,7 @@
-:root {
-  --black: rgb(0, 0, 0);
-  --white: rgb(255, 255, 255);
-  --gray: rgb(125, 125, 125);
-  --blue: rgb(75, 75, 255);
-  --red: rgb(255, 75, 75);
-}
+@import url(../globals.css);
 
 body {
   background-color: var(--blue);
-  display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
