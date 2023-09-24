@@ -6,21 +6,6 @@ export default async function createUserToken(
   user: UserDocument,
   res: Response
 ) {
-  const secret = process.env.JWT_SECRET;
-
-  if (!secret) {
-    return res.status(500).json("JWT secret not configured!");
-  }
-
-  const token = sign(
-    {
-      id: user._id,
-    },
-    secret as Secret,
-    {
-      expiresIn: "8h",
-    }
-  );
-
+  const token = sign({ id: user._id }, process.env.JWT_SECRET as Secret);
   return res.status(200).json(token);
 }

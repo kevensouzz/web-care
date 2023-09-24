@@ -7,17 +7,14 @@ export default function verifyUserToken(
   res: Response,
   next: NextFunction
 ) {
-  const secret = process.env.JWT_SECRET;
   const token = getUserToken(req);
 
   if (!token) {
     return res.status(301).redirect("/signin");
-  } else if (!secret) {
-    return res.status(500).json("JWT secret not configured!");
   }
 
   try {
-    const verified = verify(token, secret as Secret);
+    const verified = verify(token, process.env.JWT_SECRET as Secret);
     (req as JwtPayload).user = verified;
     next();
   } catch (error) {
