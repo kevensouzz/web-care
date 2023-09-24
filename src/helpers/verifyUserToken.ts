@@ -13,11 +13,7 @@ export default function verifyUserToken(
     return res.status(301).redirect("/signin");
   }
 
-  try {
-    const verified = verify(token, process.env.JWT_SECRET as Secret);
-    (req as JwtPayload).user = verified;
-    next();
-  } catch (error) {
-    return res.status(400).json(["invalid token!", error]);
-  }
+  const verified = verify(token, process.env.JWT_SECRET as Secret);
+  (req as JwtPayload).user = verified;
+  next();
 }

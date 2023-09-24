@@ -15,7 +15,7 @@ form.addEventListener("submit", (event) => {
   })
     .then((res) => res.json())
     .then((token) => {
-      localStorage.setItem("Authorization", token);
+      localStorage.setItem("token", token);
     })
     .catch((error) => {
       console.error(`Request Error: ${error}`);
