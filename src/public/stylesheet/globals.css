@@ -22,11 +22,17 @@
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+  text-align: center;
+  word-wrap: break-word;
 }
 
 button {
   background-color: transparent;
   cursor: pointer;
+}
+
+input {
+  text-align: initial;
 }
 
 ::-webkit-scrollbar {
@@ -59,6 +65,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: var(--black);
 }
 
 #header a,

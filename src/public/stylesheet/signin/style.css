@@ -116,6 +116,5 @@ form #link-to-signup a {
 @media (max-width: 320px) {
   form #link-to-signup {
     flex-direction: column;
-    text-align: center;
   }
 }

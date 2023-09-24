@@ -7,10 +7,6 @@ body {
   height: 100vh;
 }
 
-.container {
-  text-align: center;
-}
-
 .error-code {
   color: var(--white);
   font-size: 6rem;
