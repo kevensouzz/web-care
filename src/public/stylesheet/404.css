@@ -1,7 +1,7 @@
 @import url("globals.css");
 
 body {
-  background-color: var(--primary);
+  background-color: var(--background);
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -18,7 +18,7 @@ body {
   margin-top: 10px;
 }
 
-.home-link {
+div a {
   color: var(--color);
   text-decoration: none;
   border: 1px solid var(--color);
@@ -29,7 +29,7 @@ body {
   border-radius: 0.5rem;
 }
 
-.home-link:hover {
+div a:hover {
   background-color: var(--color);
-  color: var(--primary);
+  color: var(--background);
 }
