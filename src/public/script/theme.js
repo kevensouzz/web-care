@@ -40,3 +40,9 @@ function setTheme(theme) {
     document.documentElement.style.setProperty('--secondary', '#4b4bff');
   }
 }
+
+if (localStorage.getItem('Tema') == undefined) {
+  setTheme('Dark');
+} else {
+  setTheme(localStorage.getItem('Tema'));
+}
