@@ -1,4 +1,4 @@
-@import url("../globals.css");
+@import url("globals.css");
 
 #welcome {
   height: 100vh;
@@ -21,16 +21,15 @@
 #welcome .text h1,
 #welcome .text p {
   padding: 0 2.5rem;
-  color: var(--blue);
+  color: var(--fix-blue);
 }
 
 #welcome .text h1 span {
-  color: var(--white);
   cursor: pointer;
 }
 
 #welcome .text h1 span:hover {
-  color: var(--red);
+  color: var(--fix-red)
 }
 
 #welcome img {
@@ -47,7 +46,7 @@
   padding-top: 7.5vh;
 }
 
-#invite span {
+#invite div {
   width: 50%;
   height: 100%;
 
@@ -56,14 +55,14 @@
   align-items: center;
 }
 
-#invite span h1 {
+#invite div h1 {
   padding: 0 5rem;
-  color: var(--red);
+  color: var(--fix-red);
   font-weight: 600;
 }
 
-#invite span h1 a:hover {
-  color: var(--blue);
+#invite div h1 a:hover {
+  color: var(--fix-blue);
 }
 
 #invite img {
@@ -97,7 +96,7 @@
 }
 
 #us .text span {
-  color: var(--white);
+  color: var(--color);
   cursor: pointer;
 }
 

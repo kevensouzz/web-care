@@ -1,21 +1,16 @@
 <header id="header">
   <section>
     <a href="/home" id="banner">
-      <img src="icon/icon-32x32.png" alt="Web Care Logo" width="32px" height="32px">
+      <img id="logo" src="icon/blue-icon-32x32.png" alt="Web Care Logo" width="32px" height="32px">
       <h1>Web Care</h1>
     </a>
 
     <%- include('nav') %>
 
-    <span id="settings">
-      <button>
-        <img src="svg/settings/moon.svg" alt="toggle dark theme's button">
-      </button>
+    <button id="theme">
+      <i class="fa-solid fa-moon fa-xl"></i>
+    </button>
 
-      <button>
-        <img src="svg/settings/language.svg" alt="set language's button">
-      </button>
-    </span>
   </section>
 
   <%- include('mobile-nav') %>

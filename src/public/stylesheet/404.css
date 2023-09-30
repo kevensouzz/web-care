@@ -1,27 +1,27 @@
-@import url("../globals.css");
+@import url("globals.css");
 
 body {
-  background-color: var(--blue);
+  background-color: var(--primary);
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
 .error-code {
-  color: var(--white);
+  color: var(--color);
   font-size: 6rem;
 }
 
 .error-message {
-  color: var(--white);
+  color: var(--color);
   font-size: 1.5rem;
   margin-top: 10px;
 }
 
 .home-link {
-  color: var(--white);
+  color: var(--color);
   text-decoration: none;
-  border: 1px solid var(--white);
+  border: 1px solid var(--color);
   padding: 10px 20px;
   margin-top: 20px;
   display: inline-block;
@@ -30,6 +30,6 @@ body {
 }
 
 .home-link:hover {
-  background-color: var(--white);
-  color: var(--blue);
+  background-color: var(--color);
+  color: var(--primary);
 }

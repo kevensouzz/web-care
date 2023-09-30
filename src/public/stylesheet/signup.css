@@ -1,4 +1,4 @@
-@import url("../globals.css");
+@import url("globals.css");
 
 main {
   padding-top: 7.5vh;
@@ -24,13 +24,9 @@ form header {
   gap: 0.25rem;
 }
 
-form header img {
-  margin-top: 0.5rem;
-}
-
 form header h1 span {
   font-size: 2.5rem;
-  color: var(--blue);
+  color: var(--primary);
 }
 
 form .field {
@@ -40,7 +36,7 @@ form .field {
 }
 
 form label {
-  color: var(--blue);
+  color: var(--primary);
   font-size: 1.25rem;
 }
 
@@ -48,32 +44,30 @@ form input {
   transition: none;
   font-size: 1.25rem;
   font-weight: 500;
-  color: var(--blue);
+  color: var(--primary);
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
-}
-
-form input:focus {
-  outline: 0.175rem solid var(--blue);
+  border-bottom: 0.2rem solid var(--primary);
+  background-color: var(--background);
 }
 
 form input::selection {
-  background-color: var(--blue);
-  color: var(--white);
+  background-color: var(--primary);
+  color: var(--color);
 }
 
 form button {
-  color: var(--blue);
+  color: var(--primary);
   font-size: 1.5rem;
   padding: 0.5rem;
-  border: 0.15rem solid var(--blue);
+  border: 0.15rem solid var(--primary);
   border-radius: 0.25rem;
 }
 
 form button:hover,
 form button:focus {
-  background-color: var(--blue);
-  color: var(--white);
+  background-color: var(--primary);
+  color: var(--color);
 }
 
 form #link-to-signin {
@@ -86,7 +80,7 @@ form #link-to-signin {
 }
 
 form #link-to-signin a {
-  color: var(--blue);
+  color: var(--primary);
 }
 
 @media (max-width: 500px) {
