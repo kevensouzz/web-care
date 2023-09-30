@@ -53,7 +53,7 @@ form input {
 
 form input::selection {
   background-color: var(--primary);
-  color: var(--color);
+  color: var(--background);
 }
 
 form button {
@@ -67,7 +67,7 @@ form button {
 form button:hover,
 form button:focus {
   background-color: var(--primary);
-  color: var(--color);
+  color: var(--background);
 }
 
 form #link-to-signin {
