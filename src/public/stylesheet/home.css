@@ -21,7 +21,7 @@
 #welcome .text h1,
 #welcome .text p {
   padding: 0 2.5rem;
-  color: var(--fix-blue);
+  color: var(--primary);
 }
 
 #welcome .text h1 span {
@@ -29,7 +29,7 @@
 }
 
 #welcome .text h1 span:hover {
-  color: var(--fix-red)
+  color: var(--secondary)
 }
 
 #welcome img {
@@ -63,11 +63,11 @@
 }
 
 #invite .text h1 {
-  color: var(--fix-red);
+  color: var(--primary);
 }
 
 #invite .text a:hover {
-  color: var(--fix-blue);
+  color: var(--secondary);
 }
 
 #us {
@@ -171,6 +171,7 @@
 }
 
 @media (max-width: 640px) {
+
   #welcome .text h1,
   #welcome .text p {
     padding: 0 1rem;

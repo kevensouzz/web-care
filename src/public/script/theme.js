@@ -23,6 +23,9 @@ function setTheme(theme) {
     document.documentElement.style.setProperty('--background', '#000');
     document.documentElement.style.setProperty('--primary', '#4b4bff');
     document.documentElement.style.setProperty('--secondary', '#ff4b4b');
+
+    document.getElementById("welcome-image").src = "svg/blue-care.svg"
+    document.getElementById("invite-image").src = "svg/blue-signup.svg"
   }
   if (theme == 'Light') {
     localStorage.setItem('Tema', theme);
@@ -38,6 +41,9 @@ function setTheme(theme) {
     document.documentElement.style.setProperty('--background', '#fff');
     document.documentElement.style.setProperty('--primary', '#ff4b4b');
     document.documentElement.style.setProperty('--secondary', '#4b4bff');
+
+    document.getElementById("welcome-image").src = "svg/red-care.svg"
+    document.getElementById("invite-image").src = "svg/red-signup.svg"
   }
 }
 
