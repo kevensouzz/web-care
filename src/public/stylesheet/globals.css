@@ -72,7 +72,9 @@ main {
 }
 
 #header a,
-#header #banner h1 {
+#header #banner h1,
+#header section #theme i,
+#header #mobile-nav a i {
   color: var(--primary);
 }
 
@@ -105,19 +107,11 @@ main {
   font-size: 1.25rem;
 }
 
-#header section #theme i {
-  color: var(--primary);
-}
-
 #header #mobile-nav {
   width: 100%;
   min-height: 28px;
   height: 5vh;
   display: none;
-}
-
-#header #mobile-nav a i {
-  color: var(--primary);
 }
 
 @media (max-width: 1024px) {

@@ -28,7 +28,8 @@
   cursor: pointer;
 }
 
-#welcome .text h1 span:hover {
+#welcome .text h1 span:hover,
+#us .text span:hover {
   color: var(--secondary)
 }
 
@@ -62,7 +63,9 @@
   font-weight: 600;
 }
 
-#invite .text h1 {
+#invite .text h1,
+#us .text h1,
+#us .text p {
   color: var(--primary);
 }
 
@@ -90,18 +93,9 @@
   padding: 0 2.5rem;
 }
 
-#us .text h1,
-#us .text p {
-  color: var(--primary);
-}
-
 #us .text span {
   color: var(--color);
   cursor: pointer;
-}
-
-#us .text span:hover {
-  color: var(--secondary);
 }
 
 #us img {
