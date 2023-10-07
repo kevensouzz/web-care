@@ -8,7 +8,7 @@ main {
 }
 
 form {
-  height: 450px;
+  gap: 1rem;
   width: 400px;
   display: flex;
   flex-direction: column;
