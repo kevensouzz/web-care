@@ -8,7 +8,7 @@ main {
 }
 
 form {
-  height: 425px;
+  height: 450px;
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -70,6 +70,20 @@ form button:focus {
   color: var(--background);
 }
 
+form .social-auth {
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+form .social-auth a i {
+  color: var(--primary);
+  height: 100%;
+  width: auto;
+}
+
 form .auth-redirect {
   width: 100%;
   height: 5vh;
@@ -85,7 +99,6 @@ form .auth-redirect a {
 
 @media (max-width: 500px) {
   form {
-    height: 400px;
     width: 90%;
   }
 
