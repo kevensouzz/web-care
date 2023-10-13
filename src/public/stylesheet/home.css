@@ -103,7 +103,7 @@
   height: auto;
 }
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
 
   #welcome .text h1,
   #welcome .text p {
@@ -120,7 +120,7 @@
   }
 }
 
-@media (max-width:768px) {
+@media screen and (max-width:768px) {
   #welcome .text {
     width: 100%;
   }
@@ -169,7 +169,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media screen and (max-width: 640px) {
 
   #welcome .text h1,
   #welcome .text p {
@@ -186,7 +186,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media screen and (max-width: 425px) {
   #us .text h1 {
     font-size: 1.35rem;
   }
@@ -196,7 +196,7 @@
   }
 }
 
-@media (max-width: 375px) {
+@media screen and (max-width: 375px) {
   #welcome .text h1 {
     font-size: 1.25rem;
   }

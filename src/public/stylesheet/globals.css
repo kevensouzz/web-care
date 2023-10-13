@@ -84,10 +84,6 @@ main {
   height: 20px;
 }
 
-#header section #theme i:hover {
-  color: var(--color);
-}
-
 #header section {
   width: 100%;
   min-height: 42px;
@@ -134,7 +130,13 @@ main {
   text-decoration: underline 1px var(--color);
 }
 
-@media (max-width: 1024px) {
+@media screen and (min-width: 769px) {
+  #header section #theme i:hover {
+    color: var(--color);
+  }
+}
+
+@media screen and (max-width: 1024px) {
   #header section {
     padding: 0 1rem;
   }
@@ -159,7 +161,7 @@ main {
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   #header section {
     padding: 0 0.5rem;
   }
@@ -179,7 +181,7 @@ main {
   }
 }
 
-@media (max-width: 425px) {
+@media screen and (max-width: 425px) {
   #header section #banner {
     gap: 0.25rem;
   }

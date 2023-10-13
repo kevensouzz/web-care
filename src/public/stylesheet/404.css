@@ -33,7 +33,7 @@ a:hover {
   color: var(--background);
 }
 
-@media (max-width: 320px) {
+@media screen and (max-width: 320px) {
   .error-code {
     font-size: 4rem;
   }
