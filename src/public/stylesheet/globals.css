@@ -79,8 +79,13 @@ main {
   color: var(--primary);
 }
 
+#header section #theme {
+  width: 20px;
+  height: 20px;
+}
+
 #header section #theme i:hover {
-  color: var(--secondary);
+  color: var(--color);
 }
 
 #header section {
@@ -121,11 +126,12 @@ main {
 
 #header section #nav .currentPage,
 #header #mobile-nav .currentPage {
-  color: var(--color);
+  color: var(--secondary);
 }
 
 #header section #nav a:hover {
-  color: var(--secondary);
+  color: var(--color);
+  text-decoration: underline 1px var(--color);
 }
 
 @media (max-width: 1024px) {
