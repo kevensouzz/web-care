@@ -1,18 +1,28 @@
-import { Router } from "express";
-import userController from "../controllers/user";
+import { NextFunction, Request, Response, Router } from "express";
+import passport from "passport"
 
 const userRouter = Router();
 
-userRouter.post("/signup", userController.signup);
+userRouter.get("/auth", passport.authenticate("google", { scope: ["profile", "email"] }))
 
-userRouter.post("/signin", userController.signin);
+userRouter.get("/auth/callback", passport.authenticate("google", {
+  successRedirect: "/",
+  failureRedirect: "/",
+  scope: ["profile", "email"]
+}))
 
-userRouter.get("/", userController.getAllUsers);
+userRouter.get("/logout", (req: Request, res: Response, next: NextFunction) => {
+  if (req.user) {
+    req.logout((err) => {
+      if (err) {
+        return next(err);
+      };
 
-userRouter.get("/:id", userController.getUserById);
-
-userRouter.patch("/:id", userController.updateUser);
-
-userRouter.delete("/:id", userController.deleteUser);
+      res.redirect("/");
+    });
+  } else {
+    res.redirect("/");
+  }
+})
 
 export default userRouter;

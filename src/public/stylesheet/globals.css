@@ -26,6 +26,7 @@
   -moz-user-select: none;
   text-align: center;
   word-wrap: break-word;
+  scroll-behavior: smooth;
 }
 
 button {
@@ -112,6 +113,11 @@ main {
   min-height: 28px;
   height: 5vh;
   display: none;
+}
+
+#header section #nav .currentPage,
+#header #mobile-nav .currentPage {
+  color: var(--color);
 }
 
 @media (max-width: 1024px) {

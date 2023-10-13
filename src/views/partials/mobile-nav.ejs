@@ -1,12 +1,11 @@
 <nav id="mobile-nav" data-aos="zoom-out" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="250">
   <a href="/home">
-    <i class="fa-solid fa-house"></i>
+    <i class="fa-solid fa-house <%= currentPage === 'home' ? 'currentPage' : '' %>"></i>
   </a>
   <a href="/services">
-    <i class="fa-solid fa-briefcase"></i>
+    <i class="fa-solid fa-briefcase <%= currentPage === 'services' ? 'currentPage' : '' %>"></i>
   </a>
-
   <a href="/profile">
-    <i class="fa-solid fa-user"></i>
+    <i class="fa-solid fa-user <%= currentPage === 'profile' ? 'currentPage' : '' %>"></i>
   </a>
 </nav>
