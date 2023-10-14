@@ -2,11 +2,18 @@ import { NextFunction, Request, Response, Router } from "express";
 import viewsRouter from "./view";
 import userRouter from "./user";
 
+export function alreadyAuthenticated(req: Request, res: Response, next: NextFunction) {
+  if (!req.user) {
+    return next();
+  }
+  return res.status(302).redirect("/");
+}
+
 export function ensureAuthenticated(req: Request, res: Response, next: NextFunction) {
   if (req.user) {
     return next();
   }
-  res.status(302).redirect("/");
+  return res.status(302).redirect("/");
 }
 
 const router = Router();

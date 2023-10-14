@@ -8,13 +8,13 @@
 
     <section>
       <div>
-        <img draggable="false" src=<%= user.picture %> alt="Profile Picture">
+        <img data-aos="fade-right" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="100" draggable="false" src=<%= user.picture %> alt="Profile Picture">
         <span>
-          <h1><%= user.name %></h1>
-          <h2><%= user.email %></h2>
+          <h1 data-aos="fade-left" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="200"><%= user.name %></h1>
+          <h2 data-aos="fade-left" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="300"><%= user.email %></h2>
         </span>
       </div>
-      <a href="/logout">
+      <a data-aos="fade-up" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="300" href="/logout">
         Exit
       </a>
     </section>

@@ -1,17 +1,18 @@
 import { NextFunction, Request, Response, Router } from "express";
 import passport from "passport"
+import { alreadyAuthenticated, ensureAuthenticated } from "./router";
 
 const userRouter = Router();
 
-userRouter.get("/auth", passport.authenticate("google", { scope: ["profile", "email"] }))
+userRouter.get("/auth", alreadyAuthenticated, passport.authenticate("google", { scope: ["profile", "email"] }))
 
-userRouter.get("/auth/callback", passport.authenticate("google", {
+userRouter.get("/auth/callback", alreadyAuthenticated, passport.authenticate("google", {
   successRedirect: "/profile",
   failureRedirect: "/",
   scope: ["profile", "email"]
 }))
 
-userRouter.get("/logout", (req: Request, res: Response, next: NextFunction) => {
+userRouter.get("/logout", ensureAuthenticated, (req: Request, res: Response, next: NextFunction) => {
   if (req.user) {
     req.logout((err) => {
       if (err) {
