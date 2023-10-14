@@ -19,7 +19,11 @@ passport.use(new GoogleStrategy({
   state: true
 }, (accessToken, refreshToken, profile, done) => {
 
-  User.findOne({ googleId: profile.id }).then(existingUser => {
+  if (!profile.emails) {
+    throw new Error("Email is not defined!")
+  }
+
+  User.findOne({ email: profile.emails[0].value }).then(existingUser => {
     if (existingUser) {
       done(null, existingUser)
     } else {
@@ -33,6 +37,7 @@ passport.use(new GoogleStrategy({
         email: profile.emails[0].value,
         name: profile.displayName,
         picture: profile._json.picture,
+        locale: profile._json.locale,
       }).save()
         .then(user => done(null, user))
     }

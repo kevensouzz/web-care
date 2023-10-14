@@ -4,7 +4,8 @@ interface User {
   google_id: string;
   email: string;
   name: string;
-  picture: string
+  picture: string;
+  locale: string;
 }
 
 export interface UserDocument extends User, Document { }
@@ -15,7 +16,8 @@ const User = model<UserDocument>(
     google_id: String,
     email: String,
     name: String,
-    picture: String
+    picture: String,
+    locale: String,
   })
 );
 
