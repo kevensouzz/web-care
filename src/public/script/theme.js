@@ -22,7 +22,7 @@ function setTheme(theme) {
 
     try {
       document.getElementById("welcome-image").src = "svg/blue-care.svg"
-      document.getElementById("invite-image").src = "svg/blue-signup.svg"
+      document.getElementById("invite-image").src = "svg/blue-auth.svg"
       document.getElementById("us-image").src = "svg/blue-us.svg"
     } catch (error) {
       console.clear();
@@ -41,7 +41,7 @@ function setTheme(theme) {
 
     try {
       document.getElementById("welcome-image").src = "svg/red-care.svg"
-      document.getElementById("invite-image").src = "svg/red-signup.svg"
+      document.getElementById("invite-image").src = "svg/red-auth.svg"
       document.getElementById("us-image").src = "svg/red-us.svg"
     } catch (error) {
       console.clear();

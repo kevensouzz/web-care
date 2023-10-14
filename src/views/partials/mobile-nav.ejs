@@ -8,7 +8,7 @@
     <i class="fa-solid fa-briefcase <%= currentPage === 'services' ? 'currentPage' : '' %>"></i>
   </a>
   <a href="/profile">
-    <img class="<%= currentPage === 'profile' ? 'currentPage' : '' %>" src="<%- user.picture %>" alt="Profile Picture">
+    <img draggable="false" class="<%= currentPage === 'profile' ? 'currentPage' : '' %>" src="<%- user.picture %>" alt="Profile Picture">
   </a>
   <% } else { %>
   <a>
