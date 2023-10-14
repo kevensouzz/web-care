@@ -53,7 +53,6 @@ label {
 
 body {
   display: flex;
-  scroll-behavior: smooth;
   background-color: var(--background);
 }
 
@@ -120,14 +119,43 @@ main {
   display: none;
 }
 
-#header section #nav .currentPage,
-#header #mobile-nav .currentPage {
-  color: var(--secondary);
+#header #mobile-nav a {
+  width: 24px;
+  height: 24px;
+}
+
+#header #mobile-nav a img {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+}
+
+#header section #nav .currentPage {
+  color: var(--color);
+  text-decoration: 1px underline var(--color);
+}
+
+#header section #nav .currentPage:hover {
+  text-decoration: none;
 }
 
 #header section #nav a:hover {
   color: var(--color);
-  text-decoration: underline 1px var(--color);
+}
+
+#header section #nav .disable {
+  text-decoration: line-through;
+  cursor: default;
+}
+
+#header section #nav .disable:hover {
+  color: var(--primary);
+}
+
+#header #mobile-nav .currentPage {
+  color: var(--color);
+  border-color: var(--color);
 }
 
 @media screen and (min-width: 769px) {

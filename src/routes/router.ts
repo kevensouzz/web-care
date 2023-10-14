@@ -6,7 +6,7 @@ export function ensureAuthenticated(req: Request, res: Response, next: NextFunct
   if (req.user) {
     return next();
   }
-  res.status(302).redirect('/auth');
+  res.status(302).redirect("/");
 }
 
 const router = Router();
