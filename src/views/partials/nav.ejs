@@ -1,5 +1,5 @@
 <nav id="nav" data-aos="zoom-out" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="250">
-  <a href="/home" class="<%= currentPage === 'home' ? 'currentPage' : '' %>">Início</a>
+  <a href=<%- currentPage === 'home' ? '/home#welcome' : '/home' %> %> class="<%= currentPage === 'home' ? 'currentPage' : '' %>">Início</a>
   <% if (user) { %>
   <a href="/services" class="<%= currentPage === 'services' ? 'currentPage' : '' %>">Serviços</a>
   <a href="/profile" class="<%= currentPage === 'profile' ? 'currentPage' : '' %>">Perfil</a>

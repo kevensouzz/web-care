@@ -24,11 +24,7 @@
   color: var(--primary);
 }
 
-#welcome .text h1 span {
-  cursor: pointer;
-}
-
-#welcome .text h1 span:hover,
+#welcome .text h1 a:hover,
 #us .text span:hover {
   color: var(--secondary)
 }
