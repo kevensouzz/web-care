@@ -127,7 +127,6 @@ main {
 #header #mobile-nav a img {
   width: 1.5rem;
   height: 1.5rem;
-  border: 2px solid var(--primary);
   border-radius: 50%;
 }
 
@@ -155,7 +154,6 @@ main {
 
 #header #mobile-nav .currentPage {
   color: var(--color);
-  border-color: var(--color);
 }
 
 @media screen and (min-width: 769px) {
