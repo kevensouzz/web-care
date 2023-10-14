@@ -1,1 +1,91 @@
 @import url("globals.css");
+
+main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+main section div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+main section div img {
+  border-radius: 50%;
+  border: 0.2rem solid var(--primary);
+}
+
+main section div span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: justify;
+}
+
+main section div span h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+main section div span h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+main section a {
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  border: 0.175rem solid var(--primary);
+  border-radius: 0.5rem;
+  padding: 0.1rem 0;
+}
+
+main section a:hover {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+@media screen and (max-width: 425px) {
+  main section div {
+    flex-direction: column;
+  }
+
+  main section div span {
+    align-items: center;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  main section div span h1 {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  main section div span h2 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  main section a {
+    border: 0.125rem solid var(--primary);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}

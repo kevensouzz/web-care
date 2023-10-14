@@ -2,14 +2,7 @@
   <a href=<%- currentPage == 'Home' ? '/home#welcome' : '/home' %> %> class="<%- currentPage == 'Home' ? 'currentPage' : '' %>">Início</a>
   <% if (user) { %>
   <a href="/services" class="<%= currentPage == 'Services' ? 'currentPage' : '' %>">Serviços</a>
-  <a id="profile-link" href="/profile" class="<%= currentPage == 'Profile' ? 'currentPage' : '' %>">
-    <img draggable="false" src="<%- user.picture %>" alt="Profile Picture">
-    <%
-      let names = user.name.split(" ")
-      let name = names[0]
-    %>
-    <%= name %>
-  </a>
+  <a href="/profile" class="<%= currentPage == 'Profile' ? 'currentPage' : '' %>">Profile</a>
   <% } else { %>
   <a class="disable">Serviços</a>
   <a class="auth-button" href="/auth">Entrar</a>

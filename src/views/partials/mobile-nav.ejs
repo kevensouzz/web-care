@@ -2,7 +2,6 @@
   <a href=<%- currentPage == 'Home' ? '/home#welcome' : '/home' %>>
     <i class="fa-solid fa-house <%- currentPage == 'Home' ? 'currentPage' : '' %>"></i>
   </a>
-
   <% if (user) { %>
   <a href="/services">
     <i class="fa-solid fa-briefcase <%- currentPage == 'Services' ? 'currentPage' : '' %>"></i>
