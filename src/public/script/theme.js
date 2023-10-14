@@ -19,6 +19,7 @@ function setTheme(theme) {
     document.documentElement.style.setProperty('--background', '#000');
     document.documentElement.style.setProperty('--primary', '#4b4bff');
     document.documentElement.style.setProperty('--secondary', '#ff4b4b');
+    document.documentElement.style.setProperty('--disable', '#4b4bff66');
 
     try {
       document.getElementById("welcome-image").src = "svg/blue-care.svg"
@@ -38,6 +39,7 @@ function setTheme(theme) {
     document.documentElement.style.setProperty('--background', '#fff');
     document.documentElement.style.setProperty('--primary', '#ff4b4b');
     document.documentElement.style.setProperty('--secondary', '#4b4bff');
+    document.documentElement.style.setProperty('--disable', '#ff4b4b66');
 
     try {
       document.getElementById("welcome-image").src = "svg/red-care.svg"

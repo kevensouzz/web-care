@@ -6,7 +6,7 @@ const userRouter = Router();
 userRouter.get("/auth", passport.authenticate("google", { scope: ["profile", "email"] }))
 
 userRouter.get("/auth/callback", passport.authenticate("google", {
-  successRedirect: "/",
+  successRedirect: "/profile",
   failureRedirect: "/",
   scope: ["profile", "email"]
 }))

@@ -5,9 +5,7 @@
   --color: #ffffff;
   --primary: #4b4bff;
   --secondary: #ff4b4b;
-  --gray: #7d7d7d;
-  --fix-blue: #4b4bff;
-  --fix-red: #ff4b4b;
+  --disable: #4b4bff66;
 }
 
 * {
@@ -132,24 +130,50 @@ main {
 
 #header section #nav .currentPage {
   color: var(--color);
-  text-decoration: 1px underline var(--color);
 }
 
-#header section #nav .currentPage:hover {
-  text-decoration: none;
+#header section #nav #profile-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
 }
 
-#header section #nav a:hover {
-  color: var(--color);
+#header section #nav #profile-link img {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  margin-top: 0.25rem;
+}
+
+#header section #nav .auth-button {
+  border: 0.1rem solid var(--primary);
+  border-radius: 0.5rem;
+  padding: 0 0.75rem;
+}
+
+#header section #nav .auth-button:hover {
+  color: var(--background);
+  background-color: var(--primary);
 }
 
 #header section #nav .disable {
+  color: var(--disable);
   text-decoration: line-through;
   cursor: default;
 }
 
-#header section #nav .disable:hover {
-  color: var(--primary);
+#header #mobile-nav .auth-button {
+  width: fit-content;
+  height: fit-content;
+  border: 0.1rem solid var(--primary);
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+#header #mobile-nav .disable {
+  color: var(--disable);
 }
 
 #header #mobile-nav .currentPage {
@@ -188,6 +212,10 @@ main {
 }
 
 @media screen and (max-width: 768px) {
+  * {
+    cursor: default;
+  }
+
   #header section {
     padding: 0 0.5rem;
   }
