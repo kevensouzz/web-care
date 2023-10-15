@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response, Router } from "express";
 import viewsRouter from "./view";
 import userRouter from "./user";
+import emailRouter from "./email";
 
 export function alreadyAuthenticated(req: Request, res: Response, next: NextFunction) {
   if (!req.user) {
@@ -20,6 +21,7 @@ const router = Router();
 
 router.use("/", viewsRouter);
 router.use("/", userRouter);
+router.use("/", emailRouter);
 
 router.get("*", (req: Request, res: Response) => {
   const acceptHeader = req.header("Accept");
