@@ -5,6 +5,19 @@
 <body>
   <%- include('./partials/header') %>
   <main>
+
+    <form action="/send">
+      <input type="text" name="name" id="name" aria-label="Nome" disabled value=<%= user.name %>>
+
+      <input type="email" name="email" id="email" aria-label="Email" disabled value=<%= user.email %>>
+
+      <input type="text" name="subject" id="subject" aria-label="Assunto" placeholder="Assunto" maxlength="26" required>
+
+      <textarea name="message" id="message" aria-label="Mensagem" placeholder="Mensagem" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+
   </main>
 </body>
 
