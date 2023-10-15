@@ -6,7 +6,7 @@
   <%- include('./partials/header') %>
   <main>
 
-    <form action="/send">
+    <form method="post">
       <input data-aos="fade-left" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="100" type="text" name="name" id="name" aria-label="Nome" disabled value=<%= user.name %>>
 
       <input data-aos="fade-left" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="200" type="email" name="email" id="email" aria-label="Email" disabled value=<%= user.email %>>
@@ -23,4 +23,5 @@
 
 </html>
 
+<script src="script/email.js"></script>
 <%- include('partials/aos-cdn') %>
