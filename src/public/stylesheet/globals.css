@@ -83,8 +83,7 @@ main {
 
 #header section {
   width: 100%;
-  min-height: 42px;
-  height: 7.5vh;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -112,8 +111,7 @@ main {
 
 #header #mobile-nav {
   width: 100%;
-  min-height: 28px;
-  height: 5vh;
+  height: 30px;
   display: none;
 }
 
@@ -138,7 +136,8 @@ main {
   padding: 0 0.75rem;
 }
 
-#header section #nav .auth-button:hover {
+#header section #nav .auth-button:hover,
+#header section #nav .auth-button:focus {
   color: var(--background);
   background-color: var(--primary);
 }

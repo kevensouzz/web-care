@@ -1,11 +1,16 @@
 @import url("globals.css");
 
+#welcome,
+#invite,
+#us {
+  padding-top: 45px;
+}
+
 #welcome {
   height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: row;
-  padding-top: 7.5vh;
 }
 
 #welcome .text {
@@ -25,6 +30,7 @@
 }
 
 #welcome .text h1 a:hover,
+#welcome .text h1 a:focus,
 #us .text span:hover {
   color: var(--secondary)
 }
@@ -46,7 +52,6 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  padding-top: 7.5vh;
 }
 
 #invite .text {
@@ -65,7 +70,8 @@
   color: var(--primary);
 }
 
-#invite .text a:hover {
+#invite .text a:hover,
+#invite .text a:focus {
   color: var(--secondary);
   text-decoration: underline;
 }
@@ -75,7 +81,6 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  padding-top: 7.5vh;
 }
 
 #us .text {
@@ -117,6 +122,12 @@
 }
 
 @media screen and (max-width:768px) {
+  #welcome,
+  #invite,
+  #us {
+    padding-top: 75px;
+  }
+
   #welcome .text {
     width: 100%;
   }

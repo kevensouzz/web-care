@@ -1,25 +1,25 @@
-<nav id="mobile-nav" data-aos="zoom-out" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="250">
-  <a href="/home">
+<nav id="mobile-nav">
+  <a href="/home" data-aos="fade-right" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="300">
     <i class="fa-solid fa-house <%- currentPage == 'Home' ? 'currentPage' : '' %>"></i>
   </a>
   <% if (user) { %>
-  <a href="/services">
+  <a href="/services" data-aos="fade-right" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="100">
     <i class="fa-solid fa-briefcase <%- currentPage == 'Services' ? 'currentPage' : '' %>"></i>
   </a>
-  <a href="/contact">
-    <i class="fa-solid fa-envelope <%- currentPage == 'Contact' ? 'currentPage' : '' %>"></i>    
+  <a href="/contact" data-aos="fade-left" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="100">
+    <i class="fa-solid fa-envelope <%- currentPage == 'Contact' ? 'currentPage' : '' %>"></i>
   </a>
-  <a href="/profile">
+  <a href="/profile" data-aos="fade-left" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="300">
     <img draggable="false" src="<%- user.picture %>" alt="Profile Picture">
   </a>
   <% } else { %>
-  <a>
+  <a data-aos="fade-right" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="100">
     <i class="fa-solid fa-briefcase disable"></i>
   </a>
-  <a>
+  <a data-aos="fade-left" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="100">
     <i class="fa-solid fa-envelope disable"></i>
   </a>
-  <a class="auth-button" href="/auth">
+  <a data-aos="fade-left" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="300" class="auth-button" href="/auth">
     Entrar
   </a>
   <% } %>

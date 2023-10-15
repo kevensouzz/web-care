@@ -27,7 +27,7 @@ router.get("*", (req: Request, res: Response) => {
   const acceptHeader = req.header("Accept");
 
   acceptHeader && acceptHeader.includes("text/html")
-    ? res.status(404).render("404")
+    ? res.status(404).render("404", { currentPage: "404", user: req.user || undefined })
     : res.status(404).send("404!");
 });
 

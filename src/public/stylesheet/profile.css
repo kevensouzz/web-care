@@ -58,7 +58,8 @@ main section a {
   padding: 0.1rem 0;
 }
 
-main section a:hover {
+main section a:hover,
+main section a:focus {
   background-color: var(--primary);
   color: var(--background);
 }
