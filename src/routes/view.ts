@@ -15,6 +15,10 @@ viewsRouter.get("/services", ensureAuthenticated, (req: Request, res: Response) 
   return res.status(200).render("services", { currentPage: "Services", user: req.user || undefined });
 });
 
+viewsRouter.get("/contact", ensureAuthenticated, (req: Request, res: Response) => {
+  return res.status(200).render("contact", { currentPage: "Contact", user: req.user || undefined });
+});
+
 viewsRouter.get("/profile", ensureAuthenticated, (req: Request, res: Response) => {
   return res.status(200).render("profile", { currentPage: "Profile", user: req.user || undefined });
 });

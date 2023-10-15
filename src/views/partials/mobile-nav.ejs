@@ -6,12 +6,18 @@
   <a href="/services">
     <i class="fa-solid fa-briefcase <%- currentPage == 'Services' ? 'currentPage' : '' %>"></i>
   </a>
+  <a href="/contact">
+    <i class="fa-solid fa-envelope <%- currentPage == 'Contact' ? 'currentPage' : '' %>"></i>    
+  </a>
   <a href="/profile">
     <img draggable="false" src="<%- user.picture %>" alt="Profile Picture">
   </a>
   <% } else { %>
   <a>
     <i class="fa-solid fa-briefcase disable"></i>
+  </a>
+  <a>
+    <i class="fa-solid fa-envelope disable"></i>
   </a>
   <a class="auth-button" href="/auth">
     Entrar

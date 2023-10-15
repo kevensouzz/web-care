@@ -2,8 +2,10 @@
   <a href="/home" class="<%- currentPage == 'Home' ? 'currentPage' : '' %>">Início</a>
   <% if (user) { %>
   <a href="/services" class="<%= currentPage == 'Services' ? 'currentPage' : '' %>">Serviços</a>
-  <a href="/profile" class="<%= currentPage == 'Profile' ? 'currentPage' : '' %>">Profile</a>
+  <a href="/contact" class="<%= currentPage == 'Contact' ? 'currentPage' : '' %>">Contato</a>
+  <a href="/profile" class="<%= currentPage == 'Profile' ? 'currentPage' : '' %>">Perfil</a>
   <% } else { %>
+  <a class="disable">Contato</a>
   <a class="disable">Serviços</a>
   <a class="auth-button" href="/auth">Entrar</a>
   <% } %>
