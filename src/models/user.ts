@@ -8,7 +8,7 @@ interface User {
   locale: string;
 }
 
-export interface UserDocument extends User, Document { }
+export interface UserDocument extends User, Document {}
 
 const User = model<UserDocument>(
   "User",

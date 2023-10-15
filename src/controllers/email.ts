@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import nodemailer from "nodemailer";
+import Email from "../models/email";
 
 export default class emailController {
   static async sendEmail(req: Request, res: Response) {
@@ -23,6 +24,17 @@ export default class emailController {
       text: `${email}\n${name}\n\n${message}`,
     }
 
-    transporter.sendMail(mailOptions, (error, info) => error ? console.log(error) : res.status(200).send(info))
+    transporter.sendMail(mailOptions, (error, info) => {
+
+      new Email({
+        name: name,
+        email: email,
+        subject: subject,
+        message: message
+      }).save();
+
+      error ? console.log(error) : res.status(200).send(info)
+    }
+    )
   }
 }
