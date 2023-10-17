@@ -28,8 +28,7 @@ function setTheme(theme) {
     } catch (error) {
       console.clear();
     }
-  }
-  if (theme == 'Light') {
+  } else if (theme == 'Light') {
     localStorage.setItem('Theme', theme);
     document.getElementById("favicon").href = "icon/red-icon.ico"
     document.getElementById("logo").src = "icon/red-icon-32x32.png"

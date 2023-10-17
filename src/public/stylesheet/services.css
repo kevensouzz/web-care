@@ -1,1 +1,71 @@
 @import url("globals.css");
+
+body {
+  display: flex;
+}
+
+aside {
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-right: 0.2rem solid var(--disable);
+  padding: 75px 2.5rem;
+  gap: 1rem;
+}
+
+aside header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+aside header a {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+aside header i {
+  cursor: pointer;
+}
+
+aside header .x {
+  color: var(--color);
+}
+
+aside span a,
+aside header .arrow {
+  color: var(--primary);
+}
+
+aside span {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 0.1rem;
+}
+
+main {
+  width: 100%;
+  height: 200vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  aside {
+    padding: 100px 1rem;
+  }
+
+  aside span {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  aside header a {
+    font-size: 1.15rem;
+  }
+}
