@@ -1,0 +1,82 @@
+@import url("globals.css");
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding-top: 45px;
+}
+
+main nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.25rem 0;
+}
+
+main nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border: 0.1rem solid var(--primary);
+  border-radius: 0.5rem;
+  background-color: var(--primary);
+}
+
+main nav a:hover {
+  border: 0.1rem solid var(--color);
+  background-color: var(--background);
+}
+
+main section {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+main section h1 {
+  color: var(--primary);
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+main article {
+  width: 100%;
+  height: fit-content;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding-top: 75px;
+  }
+
+  main nav {
+    padding: 0.5rem 0;
+  }
+
+  main nav a {
+    gap: 0.25rem;
+    font-size: 0.75rem;
+  }
+
+  main section h1 {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  main nav a {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.65rem;
+  }
+
+  main section h1 {
+    font-size: 0.9rem;
+  }
+}
