@@ -31,7 +31,9 @@
 
 #welcome .text h1 a:hover,
 #welcome .text h1 a:focus,
-#us .text span:hover {
+#us .text span:hover,
+#invite .text a:hover,
+#invite .text a:focus {
   color: var(--secondary)
 }
 
@@ -68,12 +70,6 @@
 #us .text h1,
 #us .text p {
   color: var(--primary);
-}
-
-#invite .text a:hover,
-#invite .text a:focus {
-  color: var(--secondary);
-  text-decoration: underline;
 }
 
 #us {
