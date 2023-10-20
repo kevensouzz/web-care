@@ -7,7 +7,7 @@ body {
 aside {
   position: fixed;
   height: 100vh;
-  max-width: 600px;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   border-right: 0.2rem solid var(--disable);

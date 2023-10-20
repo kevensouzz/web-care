@@ -1,0 +1,101 @@
+@import url("globals.css");
+
+main {
+  height: 100vh;
+  padding-top: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+::selection {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+:disabled {
+  color: var(--disable);
+}
+
+::placeholder {
+  color: var(--primary);
+}
+
+form input {
+  padding: 0.25rem 1rem;
+  border-bottom: 0.15rem solid var(--primary);
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: var(--primary);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+form textarea {
+  padding: 0.25rem 1rem;
+  width: 600px;
+  height: 150px;
+  border-bottom: 0.15rem solid var(--primary);
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: var(--primary);
+  resize: none;
+  text-align: justify;
+  font-size: 1rem;
+}
+
+form button {
+  border: 0.15rem solid var(--primary);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+form button:hover,
+form button:focus {
+  color: var(--background);
+  background-color: var(--primary);
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding-top: 75px;
+  }
+
+  form input {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  form textarea {
+    width: 375px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  form textarea,
+  form input,
+  form button {
+    width: 275px;
+  }
+
+  form textarea,
+  form input {
+    padding: 0.1rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  form button {
+    padding: 0.25rem 0;
+    font-size: 1.1rem;
+  }
+}

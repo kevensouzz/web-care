@@ -28,7 +28,7 @@ passport.use(new GoogleStrategy({
       done(null, existingUser)
     } else {
 
-      if (!profile.emails) {
+      if (!profile.emails || !profile.photos) {
         throw new Error("Email is not defined!")
       }
 
@@ -36,7 +36,7 @@ passport.use(new GoogleStrategy({
         google_id: profile.id,
         email: profile.emails[0].value,
         name: profile.displayName,
-        picture: profile._json.picture,
+        picture: profile.photos[0].value,
         locale: profile._json.locale,
       }).save()
         .then(user => done(null, user))

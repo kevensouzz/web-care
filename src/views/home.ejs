@@ -7,7 +7,7 @@
   <main>
     <section id="welcome" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-center" data-aos-duaration="3000" data-aos-delay="250">
       <div class="text">
-        <h1>Bem-vindo à <a href=<%- user ? "/services" : "/home#auth-invite" %>>Web Care</a>, sua parceira de confiança em soluções empresariais.</h1>
+        <h1>Bem-vindo à <a href="/home#auth-invite">Web Care</a>, sua parceira de confiança em soluções empresariais.</h1>
         <p>Somos especialistas em oferecer soluções completas para empresas, desde consultoria estratégica até serviços de gestão e suporte técnico.</p>
       </div>
       <img draggable="false" id="welcome-image" src="./svg/blue-care.svg" alt="Web Care's home page image">
@@ -16,7 +16,11 @@
     <section id="invite" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-center" data-aos-duaration="3000" data-aos-delay="250">
       <img draggable="false" id="invite-image" src="./svg/blue-auth.svg" alt="home's auth invite image">
       <div id="auth-invite" class="text">
-        <h1>Estamos aqui para ajudar o seu negócio prosperar. <a href=<%- user ? "/profile" : "/auth" %>>Cadastre-se</a> e desfrute do serviço que nossas equipes podem oferecer para sua empresa!</h1>
+        <% if (user) { %>
+        <h1>Estamos aqui para ajudar o seu negócio prosperar. Desfrute dos <a href="/services">Serviços</a> que nossas equipes podem oferecer para sua empresa!</h1>
+        <% } else { %>
+        <h1>Estamos aqui para ajudar o seu negócio prosperar. <a href="/auth">Cadastre-se</a> e desfrute dos serviços que nossas equipes podem oferecer para sua empresa!</h1>
+        <% } %>
       </div>
     </section>
 

@@ -4,6 +4,6 @@ import emailController from "../controllers/email";
 
 const emailRouter = Router();
 
- emailRouter.post("/send", ensureAuthenticated, emailController.sendEmail)
+emailRouter.post("/send", ensureAuthenticated, emailController.sendEmail);
 
 export default emailRouter;

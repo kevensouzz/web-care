@@ -4,13 +4,12 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const formData = {
-    name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     subject: document.getElementById("subject").value,
-    message: document.getElementById("message").value,
+    description: document.getElementById("description").value,
   };
 
-  fetch("http://localhost:5000/email/send", {
+  fetch("http://localhost:5000/services/faqs/new-ask", {
     method: "post",
     headers: {
       "Content-Type": "application/json"

@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response, Router } from "express";
-import viewsRouter from "./view";
+import viewRouter from "./view";
 import userRouter from "./user";
 import emailRouter from "./email";
 
@@ -19,9 +19,9 @@ export function ensureAuthenticated(req: Request, res: Response, next: NextFunct
 
 const router = Router();
 
-router.use("/", viewsRouter);
+router.use("/", viewRouter);
 router.use("/", userRouter);
-router.use("/", emailRouter);
+router.use("/email", emailRouter);
 
 router.get("*", (req: Request, res: Response) => {
   const acceptHeader = req.header("Accept");

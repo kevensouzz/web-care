@@ -4,10 +4,7 @@ import Email from "../models/email";
 
 export default class emailController {
   static async sendEmail(req: Request, res: Response) {
-    const name = req.body.name
-    const email = req.body.email
-    const subject = req.body.subject
-    const message = req.body.message
+    const { name, email, subject, message } = req.body;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
