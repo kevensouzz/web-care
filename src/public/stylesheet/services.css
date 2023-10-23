@@ -2,6 +2,7 @@
 
 body {
   display: flex;
+  overflow: hidden;
 }
 
 aside {
@@ -11,8 +12,9 @@ aside {
   display: flex;
   flex-direction: column;
   border-right: 0.2rem solid var(--disable);
-  padding: 75px 2.5rem;
+  padding: 75px 2.5rem 30px;
   gap: 1rem;
+  background-color: var(--background);
 }
 
 aside header {
@@ -20,6 +22,7 @@ aside header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
 }
 
 aside header a {
@@ -31,22 +34,18 @@ aside header i {
   cursor: pointer;
 }
 
-aside header a:hover,
-aside header .x:hover {
-  color: var(--primary);
-}
-
-aside header .x {
+aside header .a-l {
   color: var(--color);
 }
 
 aside span a,
-aside header .arrow {
+aside header .a-r {
   color: var(--primary);
 }
 
-aside header .arrow:hover {
+aside span a:hover {
   color: var(--color);
+  text-decoration: underline 0.1rem var(--color);
 }
 
 aside span {
@@ -54,8 +53,14 @@ aside span {
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  gap: 0.1rem;
+  gap: 0.5rem;
   word-wrap: break-word;
+  overflow-y: auto;
+}
+
+aside span a {
+  padding: 0 0.5rem 0 0;
+  text-align: start;
 }
 
 main {
@@ -64,9 +69,21 @@ main {
   flex-direction: column;
 }
 
+@media screen and (min-width: 768px) {
+
+  aside header a:hover,
+  aside header .a-l:hover {
+    color: var(--primary);
+  }
+
+  aside header .a-r:hover {
+    color: var(--color);
+  }
+}
+
 @media screen and (max-width: 768px) {
   aside {
-    padding: 100px 1rem;
+    padding: 100px 1rem 10px;
     max-width: 400px;
   }
 
@@ -98,5 +115,10 @@ main {
 
   aside header a {
     font-size: 1rem;
+  }
+
+  aside span a {
+    max-width: 95%;
+    padding: 0 0.25rem;
   }
 }

@@ -1,5 +1,9 @@
 @import url("globals.css");
 
+* {
+  text-align: center;
+}
+
 main {
   height: 100vh;
   display: flex;
@@ -28,6 +32,9 @@ main section div img {
   height: 102px;
   border-radius: 50%;
   border: 0.2rem solid var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main section div span {

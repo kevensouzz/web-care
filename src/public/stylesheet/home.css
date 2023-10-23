@@ -1,5 +1,9 @@
 @import url("globals.css");
 
+* {
+  text-align: center;
+}
+
 #welcome,
 #invite,
 #us {

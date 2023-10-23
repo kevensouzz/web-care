@@ -5,23 +5,11 @@
 <body>
   <%- include('./partials/header') %>
   <main>
-    <nav>
-      <a href="/services">
-        <i class="fa-solid fa-arrow-left"></i>
-        <p>Serviços</p>
-      </a>
-
-      <a href="/services/faqs/new-ask">
-        <i class="fa-solid fa-plus"></i>
-        <p>Tire Alguma Dúvida</p>
-      </a>
-    </nav>
-
+    <%- include('./partials/faqs-nav') %>
     <section>
-      <h1>Perguntas frequentes sobre nossos serviços</h1>
+      <h1 data-aos="fade-up" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="600">Perguntas frequentes sobre nossos serviços</h1>
 
-      <article>
-
+      <article data-aos="fade-up" data-aos-easing="linear" data-aos-duaration="3000" data-aos-delay="850" id="faq-links">
       </article>
     </section>
 
@@ -30,4 +18,5 @@
 
 </html>
 
+<script src="script/render-asks.js"></script>
 <%- include('partials/aos-cdn') %>

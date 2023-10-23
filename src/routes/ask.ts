@@ -10,4 +10,12 @@ askRouter.get("/new-ask", ensureAuthenticated, (req: Request, res: Response) => 
 
 askRouter.post("/new-ask", ensureAuthenticated, askController.newAsk);
 
+askRouter.get("/asks", ensureAuthenticated, askController.getAllAsks);
+
+askRouter.get("/askPage/:id", ensureAuthenticated, askController.getAskPageById);
+
+askRouter.get("/ask/:id", ensureAuthenticated, askController.getAskById);
+
+askRouter.patch("/ask/:id", ensureAuthenticated, askController.newAskAnswer)
+
 export default askRouter;
