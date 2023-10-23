@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import Ask from "../models/ask";
+import Ask, { AskDocument } from "../models/ask";
 
 export default class askController {
   static async newAsk(req: Request, res: Response) {
@@ -63,38 +63,21 @@ export default class askController {
     }
   }
 
-  static async newAskAnswer(req: Request, res: Response) {
-
-    try {
-      const id = req.params.id;
-      const { email, answer } = req.body;
-      const newAnswer = { email, answer };
-
-      const pushedAsk = await Ask.findByIdAndUpdate(id,
-        {
-          $push: {
-            answers:
-              { email: newAnswer.email, answer: newAnswer.answer }
-          },
-        },
-        { new: true }
-      );
-
-      return res.status(200).json(pushedAsk)
-    } catch (error) {
-      return res.status(500).json("Error retrieving the answer!")
-    }
-  }
-
   static async deleteAsk(req: Request, res: Response) {
     try {
-      const id = req.params.id;
-      const deletedAsk = await Ask.findByIdAndDelete(id);
+      const { id, email } = req.params;
 
-      if (deletedAsk) {
-        return res.status(200).json(`${deletedAsk?.subject} has been successfully deleted!`)
-      } else {
+      const ask: AskDocument | null = await Ask.findById(id);
+
+      if (!ask) {
         return res.status(404).json("Ask not found!");
+      }
+
+      if (ask.email === email) {
+        await ask.deleteOne({ _id: id });
+        return res.status(200).json(`${ask.subject} has been successfully deleted!`);
+      } else {
+        return res.status(403).json("You don't have permission to delete this!");
       }
     } catch (error) {
       return res.status(500).json("Error deleting the answer!")
