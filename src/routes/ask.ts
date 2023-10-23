@@ -16,6 +16,8 @@ askRouter.get("/askPage/:id", ensureAuthenticated, askController.getAskPageById)
 
 askRouter.get("/ask/:id", ensureAuthenticated, askController.getAskById);
 
+askRouter.delete("/ask/:id", ensureAuthenticated, askController.deleteAsk);
+
 askRouter.patch("/ask/:id", ensureAuthenticated, askController.newAskAnswer)
 
 export default askRouter;

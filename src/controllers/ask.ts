@@ -64,20 +64,40 @@ export default class askController {
   }
 
   static async newAskAnswer(req: Request, res: Response) {
-    const id = req.params.id;
-    const { email, answer } = req.body;
-    const newAnswer = { email, answer };
 
-    const pushedAsk = await Ask.findByIdAndUpdate(id,
-      {
-        $push: {
-          answers:
-            { email: newAnswer.email, answer: newAnswer.answer }
+    try {
+      const id = req.params.id;
+      const { email, answer } = req.body;
+      const newAnswer = { email, answer };
+
+      const pushedAsk = await Ask.findByIdAndUpdate(id,
+        {
+          $push: {
+            answers:
+              { email: newAnswer.email, answer: newAnswer.answer }
+          },
         },
-      },
-      { new: true }
-    );
+        { new: true }
+      );
 
-    return res.status(200).json(pushedAsk)
+      return res.status(200).json(pushedAsk)
+    } catch (error) {
+      return res.status(500).json("Error retrieving the answer!")
+    }
+  }
+
+  static async deleteAsk(req: Request, res: Response) {
+    try {
+      const id = req.params.id;
+      const deletedAsk = await Ask.findByIdAndDelete(id);
+
+      if (deletedAsk) {
+        return res.status(200).json(`${deletedAsk?.subject} has been successfully deleted!`)
+      } else {
+        return res.status(404).json("Ask not found!");
+      }
+    } catch (error) {
+      return res.status(500).json("Error deleting the answer!")
+    }
   }
 }
