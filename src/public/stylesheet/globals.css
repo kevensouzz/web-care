@@ -2,6 +2,7 @@
 
 :root {
   --background: #000000;
+  --background-less-opacity: #000000e6;
   --color: #ffffff;
   --primary: #4b4bff;
   --secondary: #ff4b4b;

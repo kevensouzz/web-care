@@ -17,6 +17,7 @@ function setTheme(theme) {
     themeIcon.classList.add("fa-moon");
     document.documentElement.style.setProperty('--color', '#fff');
     document.documentElement.style.setProperty('--background', '#000');
+    document.documentElement.style.setProperty('--background-less-opacity', '#000000e6');
     document.documentElement.style.setProperty('--primary', '#4b4bff');
     document.documentElement.style.setProperty('--secondary', '#ff4b4b');
     document.documentElement.style.setProperty('--disable', '#4b4bff66');
@@ -36,6 +37,7 @@ function setTheme(theme) {
     themeIcon.classList.remove("fa-moon");
     document.documentElement.style.setProperty('--color', '#000');
     document.documentElement.style.setProperty('--background', '#fff');
+    document.documentElement.style.setProperty('--background-less-opacity', '#ffffffe6');
     document.documentElement.style.setProperty('--primary', '#ff4b4b');
     document.documentElement.style.setProperty('--secondary', '#4b4bff');
     document.documentElement.style.setProperty('--disable', '#ff4b4b66');
