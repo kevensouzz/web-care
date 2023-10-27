@@ -14,9 +14,3 @@ This system was developed to fulfill the curricular component of the IP subject 
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
 [web-care--video.webm](https://github.com/kevensouzz/web-care/assets/105600567/406cb3e4-ae80-4871-bfb1-d73457eaf774)
-
----
-
-<p align="center" >
-  XD
-</p>
