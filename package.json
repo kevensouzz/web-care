@@ -5,6 +5,9 @@
     "build": "tsup src",
     "start": "node dist/index.js"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@types/express-session": "^1.17.8",
